@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Hi! It’s still a work in progress, but I hope to get it up to date soon."
+  },
+  {
     "objectID": "posts/Spring_Reflection_2026/index.html",
     "href": "posts/Spring_Reflection_2026/index.html",
     "title": "Second Semester UD Courses Review",
@@ -82,41 +96,6 @@
     "title": "The Honors Hackathon",
     "section": "Post Hackathon",
     "text": "Post Hackathon\nYou won’t believe it, but I WON! I essentially made a Terms and Conditions reader using the Google Gemini API. You can paste in some Terms and Conditions from YouTube, let’s say, and it’ll tell you a brief breakdown of the policies the site has. Gemini’s API was really frustrating to use, and I almost scrapped my idea a few hours in.\nI leaked my API key towards the end of the challenge… that was really scary. I think Dr. Bart was talking about how people in other Hackathons exposed their API keys as well and warned us about it.\nIf you’d like to try out my site, here’s the link: https://edwinko-alt.github.io/Fine-Print-Buster/\nI do hope it’s still up. I ran into some CloudFlare issues when setting it up, but everything should work now.\nJust wait a few moments after hitting ‘send’ because it takes a while for everything to work.\nWow, I honestly can’t believe that I won… I thought that there were some very impressive projects that were much more impressive and useful that what I made. Well, regardless, I now have an iPad to show for it. I’m really glad that I went.\nI wish I took pictures… I was supposed to, but working on the site took up so much of my time. I also wish I could’ve worked with someone else. That would have been a lot more fun."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About me!"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\nUniversity of Delaware, Newark | Newark, DE\nBachelor of Science in Electrical Engineering | Aug 2025 - Present\nThis section is still in progress"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
-    "section": "",
-    "text": "Hi! It’s still a work in progress, but I hope to get it up to date soon."
-  },
-  {
-    "objectID": "posts.html",
-    "href": "posts.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSecond Semester UD Courses Review\n\n\n\nCourse Review\n\n\n\nA little recap of my second semester classes.\n\n\n\nEdwin K.\n\n\nMay 31, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to use C++ with Jupyter Notebook in VS Code (Windows)\n\n\n\nTutorial\n\n\n\nC++ kernel for Jupyer Notebook (VS Code).\n\n\n\nEdwin K.\n\n\nJan 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst Semester UD Courses Review\n\n\n\nCourse Review\n\n\n\nHow did my first semester go?\n\n\n\nEdwin K.\n\n\nDec 15, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Honors Hackathon\n\n\n\nFun\n\n\n\nMy first post!\n\n\n\nEdwin K.\n\n\nDec 6, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Fall_Reflection_2025/index.html",
@@ -208,5 +187,26 @@
     "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
     "section": "C++ Kernel for VS Code",
     "text": "C++ Kernel for VS Code\nAgain, following creme’s instructions, install the following extensions:\n\nJupyter by Microsoft\nJupyter Keymap by Microsoft\nJupyter Cell Tags by Microsoft\nJupyter Notebook Renderers by Microsoft\n\nFollowing his instructions for the environment didn’t work for me, so I had to work around it. First, create a file with the ipynb extension and with the cling environment active, run:\njupyter server password\nEnter your password twice, then after it has been hashed, run:\njupyter lab \nYour server should come online, but look for the ‘localhost’ url. Copy that to your clipboard and in VS Code, click on ‘select kernel’.\nI didn’t see a C++ kernel, and if you don’t, click ‘select another kernel’ and then click ‘existing jupyter server’. Paste in your link and enter your password. You now have the C++ kernel!\nIf you found any problems, please let me know, but I hope this is helpful for anyone trying to create C/C++ notebooks in VS Code."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About me!"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nUniversity of Delaware, Newark | Newark, DE\nBachelor of Science in Electrical Engineering | Aug 2025 - Present\nThis section is still in progress"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSecond Semester UD Courses Review\n\n\n\nCourse Review\n\n\n\nA little recap of my second semester classes.\n\n\n\nEdwin K.\n\n\nMay 31, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to use C++ with Jupyter Notebook in VS Code (Windows)\n\n\n\nTutorial\n\n\n\nC++ kernel for Jupyer Notebook (VS Code).\n\n\n\nEdwin K.\n\n\nJan 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst Semester UD Courses Review\n\n\n\nCourse Review\n\n\n\nHow did my first semester go?\n\n\n\nEdwin K.\n\n\nDec 15, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Honors Hackathon\n\n\n\nFun\n\n\n\nMy first post!\n\n\n\nEdwin K.\n\n\nDec 6, 2025\n\n\n\n\n\n\nNo matching items"
   }
 ]
