@@ -87,7 +87,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 3,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
@@ -447,7 +448,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Q291cnNlJTIwUmV2aWV3" data-listing-date-sort="1780200000000" data-listing-file-modified-sort="1795546182198" data-listing-date-modified-sort="1780891200000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1184">
+<div class="g-col-1" data-index="0" data-categories="Q291cnNlJTIwUmV2aWV3" data-listing-date-sort="1780200000000" data-listing-file-modified-sort="1795556829315" data-listing-date-modified-sort="1780891200000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1184">
 <a href="./posts/Spring_Reflection_2026/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -476,7 +477,7 @@ May 31, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="VHV0b3JpYWw=" data-listing-date-sort="1768539600000" data-listing-file-modified-sort="1795545887776" data-listing-date-modified-sort="1780891200000" data-listing-reading-time-sort="2" data-listing-word-count-sort="330">
+<div class="g-col-1" data-index="1" data-categories="VHV0b3JpYWw=" data-listing-date-sort="1768539600000" data-listing-file-modified-sort="1795556829263" data-listing-date-modified-sort="1780891200000" data-listing-reading-time-sort="2" data-listing-word-count-sort="330">
 <a href="./posts/Jupyter_for_C/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -505,7 +506,7 @@ Jan 16, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Q291cnNlJTIwUmV2aWV3" data-listing-date-sort="1765774800000" data-listing-file-modified-sort="1795546230903" data-listing-date-modified-sort="1769576400000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1271">
+<div class="g-col-1" data-index="2" data-categories="Q291cnNlJTIwUmV2aWV3" data-listing-date-sort="1765774800000" data-listing-file-modified-sort="1795556828853" data-listing-date-modified-sort="1769576400000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1271">
 <a href="./posts/Fall_Reflection_2025/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -534,11 +535,11 @@ Dec 15, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="RnVu" data-listing-date-sort="1764997200000" data-listing-file-modified-sort="1795545893317" data-listing-date-modified-sort="1768453200000" data-listing-reading-time-sort="3" data-listing-word-count-sort="422">
+<div class="g-col-1" data-index="3" data-categories="RnVu" data-listing-date-sort="1764997200000" data-listing-file-modified-sort="1795556829189" data-listing-date-modified-sort="1768453200000" data-listing-reading-time-sort="3" data-listing-word-count-sort="422">
 <a href="./posts/Honors_Hackathon/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./posts/Honors_Hackathon/hackathon.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="./posts/Honors_Hackathon/hackathon.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -565,6 +566,9 @@ Dec 6, 2025
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

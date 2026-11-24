@@ -1,6 +1,5 @@
 project:
   type: website
-
 website:
   title: "Edwin K."
   description: "Documenting drifting thoughts, experiences with my classes, as well as any random projects I may be working on. A blog built with Quarto."
@@ -18,7 +17,6 @@ website:
       - icon: github
         href: https://github.com/edwinkio
     open-graph: true
-
 format:
   html:
     theme:
@@ -33,6 +31,8 @@ comments:
       edwinkio/edwinkio
 editor: 
   render-on-save: true
+execute:
+  freeze: auto
 
 
 
