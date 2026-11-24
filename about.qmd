@@ -1,0 +1,20 @@
+---
+title: "About"
+about:
+  image: "profile.png"
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/edwinkio
+---
+
+About me!
+
+## Education
+
+University of Delaware, Newark \| Newark, DE
+
+Bachelor of Science in Electrical Engineering \| Aug 2025 - Present
+
+***This section is still in progress***

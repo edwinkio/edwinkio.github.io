@@ -1,0 +1,141 @@
+---
+title: "First Semester UD Courses Review"
+description: "How did my first semester go?"
+date: "2025-12-15"
+date-modified: "2026-1-28"
+categories: [Course Review]
+number-sections: true
+image: "Arches.jpg"
+---
+
+## Overview
+
+First year engineering students have common fall semester courses. For this post, I'll just be detailing my experiences with the classes I had in my first semester.
+
+::: {.alert .alert-block .alert-info}
+Note: Originally, this was supposed to be posted on December 15th, 2025, but I'm incredibly lazy and it's over a month later that I'm now posting this...
+:::
+
+## CHEM103 (B) {#sec-chem103}
+
+Course Title: General Chemistry
+
+Professor: Dana Chatellier
+
+Rating: 6/10
+
+To be quite honest, I didn't like this class at all. I took it with Professor Chatellier and the lectures were very dense (or maybe I am). We breezed through High School Chemistry in about 3 weeks or so.
+
+There was a lot of rote memorization, as well as some very annoying topics to learn. I'm looking you, quantum numbers and VSEPR theory.
+
+I also worked as a Cashier on weekends, so that reduced the amount of time I could spend doing homework. Actually, there was no homework for this class. Our professor gave us suggested homework problems, but again, I'm incredibly lazy.
+
+Your grade in this class is solely tied to four exams, each with equal weight (100 points). Your highest score is doubled, however, so there is a total of 500 points you can earn in this class. It's honestly so easy to pass this class. Getting a 50 on every exam would net you a C-...
+
+My grades on the exams in chronological order are: 88, 84, 78, and... a 60. Yes, I failed the final exam. A lot of people got an A, however. I only needed a %4 on the final to pass with a B, and since it was impossible for me to get an A, you can imagine how much effort I actually put into studying.
+
+With the class average being a 91.5, I honestly others think may have used *other* tools while taking the test. The test was online with no supervision...
+
+If you're interested, here's a reddit discussion on this: <https://www.reddit.com/r/udel/comments/1p5ifkd/mass_cheating_general_chemistry/>
+
+## CHEM133 (A-) {#sec-chem133}
+
+Course Title: General Chemistry Laboratory
+
+Professor: Dr. Burke (class is run by TA's)
+
+Rating: 3/10
+
+The Rate My Professor for Dr. Burke should give you a general idea of what people think about this class.
+
+You're given a pre-lab which just tests you on concepts that will be used to answer questions after the lab. You're also expected to write down a lab procedure that you will use throughout the lab session. Afterwards, there are discussion questions to answer.
+
+You're given two days after the lab to submit your work, but at the end of the semester they will forgive up to 26 hours of late submissions.
+
+Honestly, the main gripe I have about this lab is that the lab manual doesn't go into enough detail on the concepts needed to answer the discussion questions. I found myself having to try to learn using outside resources, and it doesn't help that the CHEM103 class is a bit behind the lab.
+
+The grading is also very dependent on the TA grading that week. My grade felt random at times.
+
+I'm quite sure I failed the final for this class too, but you're not given the chance to view your score. It's online and you could use your lab manual, but even with that, I wouldn't be surprised if I scored below 20%. They must have curved everyone's grades a lot.
+
+## EGG101 (A) {#sec-egg101}
+
+Course Title: Introduction to Engineering
+
+Professor: Dr. Malladi
+
+Rating: 7/10
+
+You can honestly just skip the Monday lecture's and you'll still be fine. The lecture slides are posted on Canvas.
+
+The course in of itself isn't that bad—it's supposed to be giving you an overview of what engineering is like. There's a big project with a hard deadline, and it's all broken up into a few phases.
+
+There's just a lot of busy work in this class. The reflections were a pain, and there are weekly videos you have to watch in order to answer the questions for an assignment.
+
+I don't think a board game is a bad idea for the project, but I do wish it were more interesting. Then again, we are all first years and we aren't expected to have experience.
+
+I had a wonderful group (shoutout to team 333!). Everyone contributed and worked really well. We even got an award!
+
+I do wish I paid more attention in class though. Dr. Malladi is really passionate about what she teaches, and I feel bad for doing computer science homework while she talked. The knowledge of the engineering design process may be useful someday, too.
+
+## MATH243 (A) {#sec-math243}
+
+Course Title: Analytic Geometry and Calculus C
+
+Professor: Novi Bong
+
+Rating: 9/10
+
+Professor Bong is amazing! Her explanations are really clear, and she's super relatable too! She does take attendance, but not always.
+
+You also get an extra 10% on your homework for submitting it early, so that can help your grade if you really need it.
+
+I didn't find the class all that difficult. If you do the homework and pay attention in class, you'll be fine. There are pop quizzes, but those weren't terribly difficult.
+
+I started skipping the discussion sessions because I had to pick up my brother from school, but I still somehow got a very high participation grade.
+
+I also kept on asking dumb questions in those sessions, and I was really embarrassed. That probably plays a role in why I started skipping class too.
+
+## CISC106 (A) {#sec-cisc106}
+
+Course Title: General Computer Science for Engineers (Honors)
+
+Professor: Nazim Karaca
+
+Rating: 7/10
+
+To be quite honest, this course is self taught. Going to lecture felt pointless because well, I didn't really gain much from them. Professor Nazim is interesting, but I didn't really get to know him all that well.
+
+The lab sessions (practicums) felt especially useless. I really didn't gain anything from them, especially since the course is largely self taught.
+
+I started skipping class after a while and started not doing some of the assignments. That actually hurt my grade quite a bit, but I still ended up doing well.
+
+The exams *felt* fairly easy, but exam 2 was notoriously difficult. I don't know anyone who managed to get the last question.
+
+Maybe this class was easier for me because I have prior programming experience because I know many people struggled. I would often try to speed run the homework, but there were a few that tripped me up for a while.
+
+The Honors Hackathon was really fun though! I believe that this was the first year they hosted it and I wonder if they'll do it again. There were a lot of interesting projects made. See the post below for a little more information
+
+[Honors Hackathon](/posts/Honors_Hackathon/index.qmd)
+
+## ENGL110 (A) {#sec-engl110}
+
+Course Title: First Year Writing (Honors)
+
+Professor: Dr. Wilson
+
+Rating: 9/10
+
+This class was very interesting. It's a first year class with a theme on trauma. I gained so much knowledge and I recommend anyone who has the chance to take this class to make use of the opportunity.
+
+Dr. Wilson is so intelligent, funny, and really interesting. I should mention that at times she does derail off the material we are supposed to be learning, but even then, those tangents are really informative.
+
+She gives a decent amount of extra credit through extra lectures and the banned books read aloud.
+
+There is a good amount of reading in this class, but that's only at the start of the semester. As the semester goes on, there isn't so much reading, but you do have to do research for your research paper.
+
+I really, really liked this class. This is coming from someone who doesn't really like taking English classes. I hope to take another class with her at some point.
+
+------------------------------------------------------------------------
+
+Well, that's the end of the post. My first semester was fairly interesting, and I learned quite a bit! Upon reflecting, I skipped quite a few classes, huh? It all worked out in the end though.

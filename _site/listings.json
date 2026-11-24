@@ -1,0 +1,22 @@
+[
+  {
+    "listing": "/posts/posts.html",
+    "items": []
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/Spring_Reflection_2026/index.html",
+      "/posts/Jupyter_for_C/index.html",
+      "/posts/Fall_Reflection_2025/index.html",
+      "/posts/Honors_Hackathon/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/Spectral_Subtraction/index.html",
+      "/projects/ART/index.html"
+    ]
+  }
+]

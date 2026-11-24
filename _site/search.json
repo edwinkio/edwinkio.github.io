@@ -1,0 +1,681 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Hi! It’s still a work in progress, but I hope to get it up to date soon."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About me!"
+  },
+  {
+    "objectID": "posts/posts.html",
+    "href": "posts/posts.html",
+    "title": "My Blog",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSecond Semester UD Courses Review\n\n\n\nCourse Review\n\n\n\nA little recap of my second semester classes.\n\n\n\nEdwin K.\n\n\nMay 31, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to use C++ with Jupyter Notebook in VS Code (Windows)\n\n\n\nTutorial\n\n\n\nC++ kernel for Jupyer Notebook (VS Code).\n\n\n\nEdwin K.\n\n\nJan 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst Semester UD Courses Review\n\n\n\nCourse Review\n\n\n\nHow did my first semester go?\n\n\n\nEdwin K.\n\n\nDec 15, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Honors Hackathon\n\n\n\nFun\n\n\n\nMy first post!\n\n\n\nEdwin K.\n\n\nDec 6, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/title/index.html",
+    "href": "posts/title/index.html",
+    "title": "blog post title",
+    "section": "",
+    "text": "Here is where I will start writing my actual blog post content…\n\n\n\nCitationBibTeX citation:@online{kodji2022,\n  author = {Kodji, Edwin and Csik, Samantha},\n  title = {Blog Post Title},\n  date = {2022-10-24},\n  url = {https://samanthacsik.github.io/posts/2022-10-24-my-blog-post/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nKodji, Edwin, and Samantha Csik. 2022. “Blog Post Title.”\nOctober 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-my-blog-post/."
+  },
+  {
+    "objectID": "posts/Sophmore Year/Transcription_Device.html",
+    "href": "posts/Sophmore Year/Transcription_Device.html",
+    "title": "Building a Live Transcription Device",
+    "section": "",
+    "text": "I built an Assitive Real-time Transcription (ARTT) Device.\nHere’s a quick demo of the project, but if you’re interested in the code used to create it, it can be found here\nHere’s a quick demo:\nThe recording is in 30 FPS, so it shows frame updates, but to the human eye it’s almost undetectable. Essentially, the flickering in the video isn’t seen in real life."
+  },
+  {
+    "objectID": "posts/Sophmore Year/Transcription_Device.html#audio-stream",
+    "href": "posts/Sophmore Year/Transcription_Device.html#audio-stream",
+    "title": "Building a Live Transcription Device",
+    "section": "Audio Stream",
+    "text": "Audio Stream\nThis part is relatively simple. The script simply takes audio through a microphone at a sample rate of 44.1 kHZ (the sample rate of the USB microphone I used). Depending on the microphone used, the value can be changed, however. Note that the blocksize variable should be changed accordingly (half of the sample rate, or 0.5 seconds of audio)."
+  },
+  {
+    "objectID": "posts/Sophmore Year/Transcription_Device.html#vosk-neural-network",
+    "href": "posts/Sophmore Year/Transcription_Device.html#vosk-neural-network",
+    "title": "Building a Live Transcription Device",
+    "section": "Vosk Neural Network",
+    "text": "Vosk Neural Network\nThe Vosk Neural Network for this project is the “small” model with an error rate of 9.85 on the LibriSpeech data set. I decided to use it due to its offline and lightweight build. The sample rate chosen will be automatically downsampled to 16 kHZ, since Vosk operates at that rate.\nVosk is loaded onto a Raspberry Pi and the audio stream is passed into it for recognition. The recognition has two parts: final and partial results. final refers to the transcription when the neural network has a guess at what has been said (at the end of a complete sentence, for example); partial refers to what is currently being said, and this part will be continuously loaded onto the screen."
+  },
+  {
+    "objectID": "posts/Sophmore Year/Transcription_Device.html#encoding-message-stream",
+    "href": "posts/Sophmore Year/Transcription_Device.html#encoding-message-stream",
+    "title": "Building a Live Transcription Device",
+    "section": "Encoding Message Stream",
+    "text": "Encoding Message Stream\nTranscription messages are encoded in the following format:\n(final_text + partial_text +\\n), where \\n refers to the new line character.\nFor example, the message “My name is Edwin. I love cats.” would be embedded as follows:\n(I am Edwin\\nI love cats).\nThe message is then encoded in utf-8 and sent to the Arduino for decoding. Note that the latest 4 sentences are continuously sent over."
+  },
+  {
+    "objectID": "posts/Sophmore Year/Transcription_Device.html#decoding-stream",
+    "href": "posts/Sophmore Year/Transcription_Device.html#decoding-stream",
+    "title": "Building a Live Transcription Device",
+    "section": "Decoding Stream",
+    "text": "Decoding Stream\nThis part of the project is run on a dedicated microprocessor (an Arduino Nano, for example). It detects the “(” and “)” characters as the start and end of a message, and continuously reads characters between those two indicators.\nHere, a non blocking state machine is used. It prevents buffer overflows with the below code and updates the received characterers variable, updating the display.\nchar start = '(';\nchar end = ')';\nchar currentChar;\n\nwhile (Serial.available() && !newDataReady){\n\n    currentChar = Serial.read();\n\n    if (isReceiving){\n    if (currentChar != end){\n        if (index &gt;= numChars) index = numChars - 1;\n\n        receivedChars[index] = currentChar;\n        index++;\n    }\n    else{\n        isReceiving = false;\n        receivedChars[index] = '\\0';\n        index = 0;\n        newDataReady = true;\n    }\n    }\n    else if (currentChar == start) isReceiving = true;\n}"
+  },
+  {
+    "objectID": "posts/Sophmore Year/Transcription_Device.html#live-output",
+    "href": "posts/Sophmore Year/Transcription_Device.html#live-output",
+    "title": "Building a Live Transcription Device",
+    "section": "Live Output",
+    "text": "Live Output\nThis part of the project is also fairly simple. After the message has been parsed, the output is sent to the SSD1306.\nOne can also invert the color display, allowing for visual accessibility and readability."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/VSCode for C.html",
+    "href": "posts/Freshman Year/Spring/VSCode for C.html",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "",
+    "text": "C++ kernel for Jupyer Notebook (VS Code).\nI tried following creme’s blog, but I found it to be outdated. This install uses miniforge3 instead of mambaforge, as it’s deprecated. The process for using the C++ kernel is also a little different.\nTo start, you will need the following:"
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/VSCode for C.html#download-the-miniforge3-installer",
+    "href": "posts/Freshman Year/Spring/VSCode for C.html#download-the-miniforge3-installer",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Download the miniforge3 installer",
+    "text": "Download the miniforge3 installer\nOn the miniforge release page, download the file ending in ‘Linux-x86_64.sh’ into the root directory of your terminal.\nThen run the following command to install miniforge3:\nsh ./Miniforge3-Linux-x86_64.sh\nReplace ‘Miniforge3-Linux-x86_64.sh’ with your downloaded file. Press ‘q’ to skip the license and follow the rest of the instructions.\nReload your terminal and to verify the installation, run:\nmamba --version \nls\nYou should see a folder called ‘miniforge3’ now."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/VSCode for C.html#install-xeus-cling",
+    "href": "posts/Freshman Year/Spring/VSCode for C.html#install-xeus-cling",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Install xeus-cling",
+    "text": "Install xeus-cling\nxeus-cling (a Jupyter kernel for C/C++) isn’t available on Windows (hence the reason WSL is needed), so in order to install it, run these three commands:\nmamba create -n cling\nsource activate cling\nmamba install xeus-cling -c conda-forge\nIf you want to install it from source, follow the instructions here\nYou can deactivate the environement by running:\nconda deactivate"
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/VSCode for C.html#install-jupyterlab",
+    "href": "posts/Freshman Year/Spring/VSCode for C.html#install-jupyterlab",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Install Jupyterlab",
+    "text": "Install Jupyterlab\nThe last step is to install Jupyterlab via:\nmamba install jupyterlab -c conda-forge"
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/VSCode for C.html#c-kernel-for-vs-code",
+    "href": "posts/Freshman Year/Spring/VSCode for C.html#c-kernel-for-vs-code",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "C++ Kernel for VS Code",
+    "text": "C++ Kernel for VS Code\nAgain, following creme’s instructions, install the following extensions:\n\nJupyter by Microsoft\nJupyter Keymap by Microsoft\nJupyter Cell Tags by Microsoft\nJupyter Notebook Renderers by Microsoft\n\nFollowing his instructions for the environment didn’t work for me, so I had to work around it. First, create a file with the ipynb extension and with the cling environment active, run:\njupyter server password\nEnter your password twice, then after it has been hashed, run:\njupyter lab \nYour server should come online, but look for the ‘localhost’ url. Copy that to your clipboard and in VS Code, click on ‘select kernel’.\nI didn’t see a C++ kernel, and if you don’t, click ‘select another kernel’ and then click ‘existing jupyter server’. Paste in your link and enter your password. You now have the C++ kernel!\nIf you found any problems, please let me know, but I hope this is helpful for anyone trying to create C/C++ notebooks in VS Code."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring Semester Classes.html",
+    "href": "posts/Freshman Year/Spring/Spring Semester Classes.html",
+    "title": "Spring Semester Classes",
+    "section": "",
+    "text": "My upcoming classes.\n\nSchedule\nI’ll be taking the following classes this upcoming semester:\n\nCISC210 (Intro to Systems Programming)\nCPEG202 (Intro to Digital Systems)\nELEG305 (Signals and Systems)\nHONR290 (Honors Colloqium - Art of Interpretation)\nMATH351 (Engineering Mathematics 1)\nPHYS227 (Fundamentals of Physics Lab 1)\nPHYS228 (Fundamentals of Physics Lab 2)\n\nOne might ask why I’m taking 7 classes next semester. Well, it’s really only five, but the two labs just make it seem like a lot. Also, by doing this, I may be able to graduate a full year early.\nI’m still not too sure what I would really like to do in the future (at least, career wise), so taking these classes will give me options in my final few semesters (either a masters degree, or a co-op). That’s my logic at least.\nI will definitely have to cut down my hours at work. Maybe I’ll only work for four hours during the weekends. That should be sustainable, but I still do have to curb my procrastination."
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html",
+    "title": "First Semester UD Courses Review",
+    "section": "",
+    "text": "How did my first semester go?"
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html#overview",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html#overview",
+    "title": "First Semester UD Courses Review",
+    "section": "1 Overview",
+    "text": "1 Overview\nFirst year engineering students have common fall semester courses. For this post, I’ll just be detailing my experiences with the classes I had in my first semester.\n\nNote: Originally, this was supposed to be posted on December 15th, 2025, but I’m incredibly lazy and it’s over a month later that I’m now posting this…\n\nSection 2 Section 3 Section 4 Section 5 Section 6 Section 7"
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-chem103",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-chem103",
+    "title": "First Semester UD Courses Review",
+    "section": "2 CHEM103 (B)",
+    "text": "2 CHEM103 (B)\nCourse Title: General Chemistry\nProfessor: Dana Chatellier\nRating: 6/10\nTo be quite honest, I didn’t like this class at all. I took it with Professor Chatellier and the lectures were very dense (or maybe I am). We breezed through High School Chemistry in about 3 weeks or so.\nThere was a lot of rote memorization, as well as some very annoying topics to learn. I’m looking you, quantum numbers and VSEPR theory.\nI also worked as a Cashier on weekends, so that reduced the amount of time I could spend doing homework. Actually, there was no homework for this class. Our professor gave us suggested homework problems, but again, I’m incredibly lazy.\nYour grade in this class is solely tied to four exams, each with equal weight (100 points). Your highest score is doubled, however, so there is a total of 500 points you can earn in this class. It’s honestly so easy to pass this class. Getting a 50 on every exam would net you a C-…\nMy grades on the exams in chronological order are: 88, 84, 78, and… a 60. Yes, I failed the final exam. A lot of people got an A, however. I only needed a %4 on the final to pass with a B, and since it was impossible for me to get an A, you can imagine how much effort I actually put into studying.\nWith the class average being a 91.5, I honestly think may have used other tools while taking the test. The test was online with no supervision…\nIf you’re interested, here’s a reddit discussion on this: https://www.reddit.com/r/udel/comments/1p5ifkd/mass_cheating_general_chemistry/"
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-chem133",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-chem133",
+    "title": "First Semester UD Courses Review",
+    "section": "3 CHEM133 (A-)",
+    "text": "3 CHEM133 (A-)\nCourse Title: General Chemistry Laboratory\nProfessor: Dr. Burke (class is run by TA’s)\nRating: 3/10\nThe Rate My Professor for Dr. Burke should give you a general idea of what people think about this class.\nYou’re given a pre-lab which just tests you on concepts that will be used to answer questions after the lab. You’re also expected to write down a lab procedure that you will use throughout the lab session. Afterwards, there are discussion questions to answer.\nYou’re given two days after the lab to submit your work, but at the end of the semester they will forgive up to 26 hours of late submissions.\nHonestly, the main gripe I have about this lab is that the lab manual doesn’t go into enough detail on the concepts needed to answer the discussion questions. I found myself having to try to learn using outside resources, and it doesn’t help that the CHEM103 class is a bit behind the lab.\nThe grading is also very dependent on the TA grading that week. My grade felt random at times.\nI’m quite sure I failed the final for this class too, but you’re not given the chance to view your score. It’s online and you could use your lab manual, but even with that, I wouldn’t be surprised if I scored below 20%. They must have curved everyone’s grades a lot."
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-egg101",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-egg101",
+    "title": "First Semester UD Courses Review",
+    "section": "4 EGG101 (A)",
+    "text": "4 EGG101 (A)\nCourse Title: Introduction to Engineering\nProfessor: Dr. Malladi\nRating: 7/10\nYou can honestly just skip the Monday lecture’s and you’ll still be fine. The lecture slides are posted on Canvas.\nThe course in of itself isn’t that bad—it’s supposed to be giving you an overview of what engineering is like. There’s a big project with a hard deadline, and it’s all broken up into a few phases.\nThere’s just a lot of busy work in this class. The reflections were a pain, and there are weekly videos you have to watch in order to answer the questions for an assignment.\nI don’t think a board game is a bad idea for the project, but I do wish it were more interesting. Then again, we are all first years and we aren’t expected to have experience.\nI had a wonderful group (shoutout to team 333!). Everyone contributed and worked really well. We even got an award!\nI do wish I paid more attention in class though. Dr. Malladi is really passionate about what she teaches, and I feel bad for doing computer science homework while she talked. The knowledge of the engineering design process may be useful someday, too."
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-math243",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-math243",
+    "title": "First Semester UD Courses Review",
+    "section": "5 MATH243 (A)",
+    "text": "5 MATH243 (A)\nCourse Title: Analytic Geometry and Calculus C\nProfessor: Novi Bong\nRating: 9/10\nProfessor Bong is amazing! Her explanations are really clear, and she’s super relatable too! She does take attendance, but not always.\nYou also get an extra 10% on your homework for submitting it early, so that can help your grade if you really need it.\nI didn’t find the class all that difficult. If you do the homework and pay attention in class, you’ll be fine. There are pop quizzes, but those weren’t terribly difficult.\nI started skipping the discussion sessions because I had to pick up my brother from school, but I still somehow got a very high participation grade.\nI also kept on asking dumb questions in those sessions, and I was really embarrassed. That probably plays a role in why I started skipping class too."
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-cisc106",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-cisc106",
+    "title": "First Semester UD Courses Review",
+    "section": "6 CISC106 (A)",
+    "text": "6 CISC106 (A)\nCourse Title: General Computer Science for Engineers (Honors)\nProfessor: Nazim Karaca\nRating: 7/10\nTo be quite honest, this course is self taught. Going to lecture felt pointless because well, I didn’t really gain much from them. Professor Nazim is interesting, but I didn’t really get to know him all that well.\nThe lab sessions (practicums) felt especially useless. I really didn’t gain anything from them, especially since the course is largely self taught.\nI started skipping class after a while and started not doing some of the assignments. That actually hurt my grade quite a bit, but I still ended up doing well.\nThe exams felt fairly easy, but exam 2 was notoriously difficult. I don’t know anyone who managed to get the last question.\nMaybe this class was easier for me because I have prior programming experience because I know many people struggled. I would often try to speed run the homework, but there were a few that tripped me up for a while.\nThe Honors Hackathon was really fun though! I believe that this was the first year they hosted it and I wonder if they’ll do it again. There were a lot of interesting projects made. See the post below for a little more information\nHonors Hackathon"
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-engl110",
+    "href": "posts/Freshman Year/Fall/Fall_Reflection.html#sec-engl110",
+    "title": "First Semester UD Courses Review",
+    "section": "7 ENGL110 (A)",
+    "text": "7 ENGL110 (A)\nCourse Title: First Year Writing (Honors)\nProfessor: Dr. Wilson\nRating: 9/10\nThis class was very interesting. It’s a first year class with a theme on trauma. I gained so much knowledge and I recommend anyone who has the chance to take this class to make use of the opportunity.\nDr. Wilson is so intelligent, funny, and really interesting. I should mention that at times she does derail off the material we are supposed to be learning, but even then, those tangents are really informative.\nShe gives a decent amount of extra credit through extra lectures and the banned books read aloud.\nThere is a good amount of reading in this class, but that’s only at the start of the semester. As the semester goes on, there isn’t so much reading, but you do have to do research for your research paper.\nI really, really liked this class. This is coming from someone who doesn’t really like taking English classes. I hope to take another class with her at some point.\n\nWell, that’s the end of the post. My first semester was fairly interesting, and I learned quite a bit! Upon reflecting, I skipped quite a few classes, huh? It all worked out in the end though. Take a look at my next semester classes here:\n\nSpring Semester Classes"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nUniversity of Delaware, Newark | Newark, DE\nBachelor of Science in Electrical Engineering | Aug 2025 - Present\nThis section is still in progress"
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Hackathon.html",
+    "href": "posts/Freshman Year/Fall/Hackathon.html",
+    "title": "The Honors Hackathon",
+    "section": "",
+    "text": "My first post!"
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Hackathon.html#introduction",
+    "href": "posts/Freshman Year/Fall/Hackathon.html#introduction",
+    "title": "The Honors Hackathon",
+    "section": "Introduction",
+    "text": "Introduction\nHi! I guess this is the first blog post, huh? I hope to journal about my college experience so that I can later on look back upon it. I was thinking of writing everyday, but I’ve realized that’ll probably be very difficult. We’ll see, I guess.\nAnyways—the Honors Hackathon! I’ve never participated in a Hackathon before. The best I can compare it to is the Big Ideas Challenge me and my engineering group participated in yesterday and a game jam I took part of in 8th grade.\nSpeaking of the Big Ideas Challenge, we didn’t win, but it was still really interesting to see what other people have created. I wish I took pictures.\nI’ll try to take pictures while I’m at the Hackathon though. I wonder what it’s like… they don’t tell you what to make, so it’s simply up to you and your partner’s imagination. Now that I think of it, I don’t know many people who did sign up for the Hackathon. Ah well, maybe I’ll try to rope someone into working with me. Two heads are better than one, after all.\nI’m not very good at programming, but I hope to do somewhat well."
+  },
+  {
+    "objectID": "posts/Freshman Year/Fall/Hackathon.html#post-hackathon",
+    "href": "posts/Freshman Year/Fall/Hackathon.html#post-hackathon",
+    "title": "The Honors Hackathon",
+    "section": "Post Hackathon",
+    "text": "Post Hackathon\nYou won’t believe it, but I WON! I essentially made a Terms and Conditions reader using the Google Gemini API. You can paste in some Terms and Conditions from YouTube, let’s say, and it’ll tell you a brief breakdown of the policies the site has. Gemini’s API was really frustrating to use, and I almost scrapped my idea a few hours in.\nI leaked my API key towards the end of the challenge… that was really scary. I think Dr. Bart was talking about how people in other Hackathons exposed their API keys as well and warned us about it.\nIf you’d like to try out my site, here’s the link: https://edwinko-alt.github.io/Fine-Print-Buster/\nI do hope it’s still up. I ran into some CloudFlare issues when setting it up, but everything should work now.\nJust wait a few moments after hitting ‘send’ because it takes a while for everything to work.\nWow, I honestly can’t believe that I won… I thought that there were some very impressive projects that were much more impressive and useful that what I made. Well, regardless, I now have an iPad to show for it. I’m really glad that I went.\nI wish I took pictures… I was supposed to, but working on the site took up so much of my time. I also wish I could’ve worked with someone else. That would have been a lot more fun."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html",
+    "href": "posts/Freshman Year/Spring/Week 1.html",
+    "title": "Week 1 - School Blues",
+    "section": "",
+    "text": "A recap of the first week of my second semester."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html#monday",
+    "href": "posts/Freshman Year/Spring/Week 1.html#monday",
+    "title": "Week 1 - School Blues",
+    "section": "Monday",
+    "text": "Monday\nI was really nervous before my first class. I had a really bad stomach ache, but it eventually went away. It happens every morning before school, and it’s really annoying, but i have to bear with it.\nMy first class was ELEG305 and I feel super under prepared for it. I’m actually not really supposed to be taking it (it’s a sophomore class, and it had a prerequisite before this year), but I plan on graduating in 3 years. We’ll see how it goes though. The content seems really interesting, but I hope it isn’t too difficult.\nAfter the class, I went to pick up my brother from school.1\nI had breakfast at 12 (unhealthy, I know), and then I worked on an assignment for CISC210.\nI then had my Honors Colloquium course, which seems really interesting! The professor seems really nice, although he’s rather unfiltered in his language."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html#tuesday",
+    "href": "posts/Freshman Year/Spring/Week 1.html#tuesday",
+    "title": "Week 1 - School Blues",
+    "section": "Tuesday",
+    "text": "Tuesday\nIt was super cold today. After dropping off my brother, I went to Gore Hall and stayed there for around three hours working on a few assignments. I saw a some friends passing through there (Raima, Ellie, and Blessed)!\nI spent an awful amount of time trying to install a Jupyter Notebook with a C++ kernel (I’ll be using this for notes), and it took a while, but it finally worked.\nThen I had my Systems Programming class. I have professor Nazim from my CS1 class again, so that’s nice to see. We just went over the Syllabus and talked about some random things.\nApparently, the labs are optional, so I’ll likely won’t show up to any of them. I went with Joshua and Ryan, and there were only 5 or so people there when we showed up. I guess professor Nazim shouldn’t have said that the labs are optional…\nI went to the library and read ‘A Good Man is Hard to Find’ for my honors colloquium, and I’ll have a whole separate post (link post) detailing my thoughts toward it. Spoiler warning: my interpretation is quite deranged, but it’s all I have and I think I have a pretty good argument for it.\nI then had my Engineering Math class, and I think I’ll like this class as well. The professor is in a way, brimming with energy, and he’s really passionate about math. We learned about the classification of differential equations towards the end of the class.\nFinally, it was time for my Digital Systems class. I’m not very sure what to think about it yet, partly because I was busy figuring out how I would organize my notes for my classes. I still haven’t really decided.\nAnyways, there wasn’t much to today. I saw a few old friends from high school, and I rode the bus with Avneet towards the parking spaces. He mentioned the Winter Fellows program he took part of, which i found really interesting. Maybe I’ll apply for the Summer Fellows program if I can."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html#wednesday",
+    "href": "posts/Freshman Year/Spring/Week 1.html#wednesday",
+    "title": "Week 1 - School Blues",
+    "section": "Wednesday",
+    "text": "Wednesday\nI feel even more unprepared for my Signals and Systems class. I’ve found that the way Dr. Brockmeier teaches the class is far from my liking. To me, he seems to be introducing concepts as he likes and it doesn’t feel structured at all. I think I might just read the book because I left class more confused, and we’re just starting!\nAfter class, I stayed in my car for a while rewriting notes. Things make SO much more sense now.\nMy physics lab isn’t starting until next week, so I don’t have to worry about that for now.\nAfter picking up my brother from school, I went home and came back to campus around 2:30. My colloquium class was really interesting today! Unfortunately, we didn’t discuss our interpretation of the reading, but we had some very interesting conversations about who’s actually right when it comes to interpreting a text: the author, or the reader? In my opinion, authors and readers can interpret a text incorrectly. So then what decides the meaning of a text?\nHis view is that the words themselves is what matters. The meaning of a text doesn’t change with time or the condition of society.\nI agree with his view, and I wonder where this class is going to go. We have been assigned 46 pages to read, and that might not sound like a lot, but we’ll be discussing on Friday and I haven’t started reading yet…\nI’ve gotta get to reading then."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html#thursday",
+    "href": "posts/Freshman Year/Spring/Week 1.html#thursday",
+    "title": "Week 1 - School Blues",
+    "section": "Thursday",
+    "text": "Thursday\nI’ve barely read the book and it’s due tomorrow… how annoying. I really didn’t feel up to doing anything at all today.\nMy Systems Programming class was really boring. I wonder if it’ll be anything like CS1. Honestly, we didn’t really do much of anything. I just have to give it time, I guess. it’s only the second day after all.\nAfterwards I spent a little time reading and then I had my math class. I was really lost today. I didn’t really understand Dr. Schreffler when he started talking about singular solutions of ODE’s and Existence & Uniqueness. Everyone else seemed to grasp things just fine, however.\nHe seems to just introduce things out of nowhere, providing no sort of motivation. Maybe it’s just me though.\nI then had my Digital Systems class. Things were slightly better, but I felt as if the professor was going through the slides rather quickly. I felt really slow.\nI know I’m not very smart, but these classes are suddenly so overwhelming to me.\nThings really aren’t going so well, and it’s going to be really hard to catch up."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html#friday",
+    "href": "posts/Freshman Year/Spring/Week 1.html#friday",
+    "title": "Week 1 - School Blues",
+    "section": "Friday",
+    "text": "Friday\nMy ELEG305 discussion went well today. I actually understood the problems, but then again, they were fairly basic. We started the homework, which I’m really thankful for because I haven’t started it myself.\nI then had a giant 4 hour block. I went home to eat and finish reading my assigned reading. It turns out that we didn’t really have to read all of it, but we still had a fairly interesting dicussion. I missed a few points Scalia (the author) made, probably because I didn’t take notes. I might have to reread it, since it seems like we’ll be spending a while studying his points in depth.\nI haven’t really done much today. I should probably get some work done, but I am so lazy."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html#note",
+    "href": "posts/Freshman Year/Spring/Week 1.html#note",
+    "title": "Week 1 - School Blues",
+    "section": "Note",
+    "text": "Note\nI probably won’t continue with weekly posts like this. I already have a private diary to maintain, so if anything, this will feel like an extra chore."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Week 1.html#footnotes",
+    "href": "posts/Freshman Year/Spring/Week 1.html#footnotes",
+    "title": "Week 1 - School Blues",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nHis school is only 5 minutes or so away, so it’s really convenient.↩︎"
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html",
+    "title": "Second Semester UD Courses Review",
+    "section": "",
+    "text": "A little recap of my second semester classes."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#overview",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#overview",
+    "title": "Second Semester UD Courses Review",
+    "section": "1 Overview",
+    "text": "1 Overview\nTaking 7 classes (of which 2 were labs) wasn’t a fun experience, but I somehow made it work. This post will follow the same format as last semester’s review (Fall Reflection).\nSection 2 Section 3 Section 4 Section 5 Section 6 Section 7 Section 8"
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-cisc210",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-cisc210",
+    "title": "Second Semester UD Courses Review",
+    "section": "2 CISC210 (A)",
+    "text": "2 CISC210 (A)\nCourse Title: Introduction to Systems Programming\nProfessor: Nazim Karaca\nRating: 9/10\nThis class went over the history of Unix and Linux development, the basics of the Linux command line, and provided an overview of the C programming language. We were also provided an introduction to embedded systems programming with a Raspberry Pi, which I found really interesting. This class is really similar to CISC106 in terms of how we were taught.\nThere are usually a few Perusall readings you have to do every week. Some of them can be very lengthy, so it’s a good idea to start on them early. Additionally, there are quizzes on Moodle which are helpful and prepare you for the exams. The projects on the Pi can be really time consuming, so again, it’s a good idea to start on them early. Sometimes, you can get extra credit for doing the projects early too!\nI overall liked this class. C was a little hard to get used to, however. In a high level language like python, a lot about how computers work (memory, data management, etc) is hidden away from you, but C forces you to actually know what you’re doing. The projects were also really fun to work on. Again, I didn’t really like the format, as we had to learn a lot ourselves, but my professor and the TA were really helpful whenever I didn’t understand something."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-cpeg202",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-cpeg202",
+    "title": "Second Semester UD Courses Review",
+    "section": "3 CPEG202 (A-)",
+    "text": "3 CPEG202 (A-)\nCourse Title: Introduction to Digital Systems\nProfessor: Thomas Lum\nRating: 4/10\nThis class goes over the underlying principles of how computers work. We went over topics like CMOS circuits, logic gates, boolean algebra, combinatorial & arithmetic logic circuits, and VHDL programming. We had weekly labs, but two of your lowest scoring labs could be dropped, which was really nice. We also had weekly readings on Zybook that are really helpful. Note that while not required for purchase, the Arty S7-25 board is helpful to have for labs, since the last few labs are really time consuming.\nI disliked this class. Our professor went really fast through slides and I’d sometimes leave class more confused than I was coming in. I remember being so flustered during the latter few weeks of class because I could barely understand the professor. VHDL is also really difficult to program in, so it took quite a bit of time to get through the labs. The Zybooks made learning the concepts a lot easier though, so I’d recommend slowing down to really read them."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-eleg305",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-eleg305",
+    "title": "Second Semester UD Courses Review",
+    "section": "4 ELEG305 (A-)",
+    "text": "4 ELEG305 (A-)\nCourse Title: Signals and Systems\nProfessor: Austin Brockmeier\nRating: 7/10\nELEG305 provides an introduction to the analysis of well, signals and systems. We went over basic signal transformations, linear time invariant systems, continuous and discrete time systems, convolutions, the Fourier series and transforms, and so much more. We had weekly homework problem sets, as well as computer assignments to help us solidify our understanding.\nThis class was hard. Looking back at it, the content wasn’t all that difficult, but being introduced to all of these concepts without a background in Linear Algebra or Differential Equations made things really overwhelming. This class is basically a combination of those two classes. The second exam for this class was brutal. I somehow got a 63, but the class average was ~47 from what I overheard. I think that its best to take a look at the assigned reading for the week before going to class. I found myself doing a lot better once I first exposed myself to the material beforehand.\nI was in the Honors section of this class, so I had to do a research project as well. I worked on a voice isolation project. Essentially, I explored methods of identifying a human voice in the presence of noise. I explored Spectral Subtraction and Independent Component Analysis (ICA). ICA was really difficult to learn about since I didn’t have the requisite mathematical knowledge, but I still got the general idea of how it works. I was able to impelment Spectral Subtraction however, and I plan on making a blog post about it soon."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-honr290",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-honr290",
+    "title": "Second Semester UD Courses Review",
+    "section": "5 HONR290 (A)",
+    "text": "5 HONR290 (A)\nCourse Title: The Art of Interpretation\nProfessor: Richard Hanley\nRating: 9/10\nWould you interpret fiction the same way you’d understand the law? How about scripture? What are ways that one would go about intepreting media in those domains? This class answered some of those questions and more. I didn’t think that this class would be Philosophy based, but well, it was. We went over textualism and other methods of interpreting law. The we looked at various critical theories that help us understand fiction before finally moving to the interpretation of scripture.\nI liked this class. It made me think about things that I otherwise would not. It really helped illustrate how the world isn’t black or white, which I really appreciated. I’d recommend this class!"
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-math351",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-math351",
+    "title": "Second Semester UD Courses Review",
+    "section": "6 MATH351 (A)",
+    "text": "6 MATH351 (A)\nCourse Title: Engineering Mathematics 1\nProfessor: Morgan Schreffler\nRating: 8/10\nThis class was a mix of introductory Differential Equations and Linear Algebra. We went over initial value problems, linear ODE’s, Gaussian elimination, matrix algebra, vector spaces (and subspaces), eigenvalues, coupled linear ODE’s, and more. There are weekly homework assignments with extra credit avaliable, as well as 3 exams (one being the final). The lowest of your two midterms is weighted less, which is really helpful.\nI found this class really interesting and I didn’t find it all that difficult. Contrary to Professor Schreffler’s RMP ratings, I found him a great teacher. I was hardly ever lost and I think he did a really good job of explaining the concepts to us. I don’t think other people found him helpful because towards the end of the semester only 15 or so people were showing up out of 40. He seemed really down about that, but we had great discussions with those who did show up."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-phys227",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-phys227",
+    "title": "Second Semester UD Courses Review",
+    "section": "7 PHYS227 (B+)",
+    "text": "7 PHYS227 (B+)\nCourse Title: Fundamentals of Physics Lab 1\nProfessor: Class led by TA\nRating: 9/10\nThis lab gave us experiments based on the material in PHYS206. The labs weren’t all that difficult but the lab reports were a pain. There’s really not much to say about this lab. I remember getting a +- value of 50,000, which definitely wasn’t intended, but the lab as a whole was a lot better than the chemistry lab I had first semester, however."
+  },
+  {
+    "objectID": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-phys228",
+    "href": "posts/Freshman Year/Spring/Spring_Reflection.html#sec-phys228",
+    "title": "Second Semester UD Courses Review",
+    "section": "8 PHYS228 (B+)",
+    "text": "8 PHYS228 (B+)\nCourse Title: Fundamentals of Physics Lab 2\nProfessor: Class led by TA\nRating: 7/10\nThis lab was definitely a lot harder than PHYS227. The lab manual was very confusing at times and sometimes, it gave us the wrong instructions. Our TA was really knowledgeable however, so things weren’t too difficult. It would’ve been helpful to have had PHYS208 alongside this class, but I’d rather not take Physics 2 again.\n\nEnd of the post! My second semester went better than I was expecting. It was a struggle in the beginning, especially since I was working at Walmart part time, but I’m glad I got through it. I plan to get an on campus research job next semester, so hopefully that’s more enjoyable. Thanks for reading!"
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html",
+    "title": "Second Semester UD Courses Review",
+    "section": "",
+    "text": "A little recap of my second semester classes."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#overview",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#overview",
+    "title": "Second Semester UD Courses Review",
+    "section": "1 Overview",
+    "text": "1 Overview\nTaking 7 classes (of which 2 were labs) wasn’t a fun experience, but I somehow made it work. This post will follow the same format as last semester’s review (Fall Reflection).\nSection 2 Section 3 Section 4 Section 5 Section 6 Section 7 Section 8"
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-cisc210",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-cisc210",
+    "title": "Second Semester UD Courses Review",
+    "section": "2 CISC210 (A)",
+    "text": "2 CISC210 (A)\nCourse Title: Introduction to Systems Programming\nProfessor: Nazim Karaca\nRating: 9/10\nThis class went over the history of Unix and Linux development, the basics of the Linux command line, and provided an overview of the C programming language. We were also provided an introduction to embedded systems programming with a Raspberry Pi, which I found really interesting. This class is really similar to CISC106 in terms of how we were taught.\nThere are usually a few Perusall readings you have to do every week. Some of them can be very lengthy, so it’s a good idea to start on them early. Additionally, there are quizzes on Moodle which are helpful and prepare you for the exams. The projects on the Pi can be really time consuming, so again, it’s a good idea to start on them early. Sometimes, you can get extra credit for doing the projects early too!\nI overall liked this class. C was a little hard to get used to, however. In a high level language like python, a lot about how computers work (memory, data management, etc) is hidden away from you, but C forces you to actually know what you’re doing. The projects were also really fun to work on. Again, I didn’t really like the format, as we had to learn a lot ourselves, but my professor and the TA were really helpful whenever I didn’t understand something."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-cpeg202",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-cpeg202",
+    "title": "Second Semester UD Courses Review",
+    "section": "3 CPEG202 (A-)",
+    "text": "3 CPEG202 (A-)\nCourse Title: Introduction to Digital Systems\nProfessor: Thomas Lum\nRating: 4/10\nThis class goes over the underlying principles of how computers work. We went over topics like CMOS circuits, logic gates, boolean algebra, combinatorial & arithmetic logic circuits, and VHDL programming. We had weekly labs, but two of your lowest scoring labs could be dropped, which was really nice. We also had weekly readings on Zybook that are really helpful. Note that while not required for purchase, the Arty S7-25 board is helpful to have for labs, since the last few labs are really time consuming.\nI disliked this class. Our professor went really fast through slides and I’d sometimes leave class more confused than I was coming in. I remember being so flustered during the latter few weeks of class because I could barely understand the professor. VHDL is also really difficult to program in, so it took quite a bit of time to get through the labs. The Zybooks made learning the concepts a lot easier though, so I’d recommend slowing down to really read them."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-eleg305",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-eleg305",
+    "title": "Second Semester UD Courses Review",
+    "section": "4 ELEG305 (A-)",
+    "text": "4 ELEG305 (A-)\nCourse Title: Signals and Systems\nProfessor: Austin Brockmeier\nRating: 7/10\nELEG305 provides an introduction to the analysis of well, signals and systems. We went over basic signal transformations, linear time invariant systems, continuous and discrete time systems, convolutions, the Fourier series and transforms, and so much more. We had weekly homework problem sets, as well as computer assignments to help us solidify our understanding.\nThis class was hard. Looking back at it, the content wasn’t all that difficult, but being introduced to all of these concepts without a background in Linear Algebra or Differential Equations made things really overwhelming. This class is basically a combination of those two classes. The second exam for this class was brutal. I somehow got a 63, but the class average was ~47 from what I overheard. I think that its best to take a look at the assigned reading for the week before going to class. I found myself doing a lot better once I first exposed myself to the material beforehand.\nI was in the Honors section of this class, so I had to do a research project as well. I worked on a voice isolation project. Essentially, I explored methods of identifying a human voice in the presence of noise. I explored Spectral Subtraction and Independent Component Analysis (ICA). ICA was really difficult to learn about since I didn’t have the requisite mathematical knowledge, but I still got the general idea of how it works. I was able to impelment Spectral Subtraction however, and I plan on making a blog post about it soon."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-honr290",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-honr290",
+    "title": "Second Semester UD Courses Review",
+    "section": "5 HONR290 (A)",
+    "text": "5 HONR290 (A)\nCourse Title: The Art of Interpretation\nProfessor: Richard Hanley\nRating: 9/10\nWould you interpret fiction the same way you’d understand the law? How about scripture? What are ways that one would go about intepreting media in those domains? This class answered some of those questions and more. I didn’t think that this class would be Philosophy based, but well, it was. We went over textualism and other methods of interpreting law. The we looked at various critical theories that help us understand fiction before finally moving to the interpretation of scripture.\nI liked this class. It made me think about things that I otherwise would not. It really helped illustrate how the world isn’t black or white, which I really appreciated. I’d recommend this class!"
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-math351",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-math351",
+    "title": "Second Semester UD Courses Review",
+    "section": "6 MATH351 (A)",
+    "text": "6 MATH351 (A)\nCourse Title: Engineering Mathematics 1\nProfessor: Morgan Schreffler\nRating: 8/10\nThis class was a mix of introductory Differential Equations and Linear Algebra. We went over initial value problems, linear ODE’s, Gaussian elimination, matrix algebra, vector spaces (and subspaces), eigenvalues, coupled linear ODE’s, and more. There are weekly homework assignments with extra credit avaliable, as well as 3 exams (one being the final). The lowest of your two midterms is weighted less, which is really helpful.\nI found this class really interesting and I didn’t find it all that difficult. Contrary to Professor Schreffler’s RMP ratings, I found him a great teacher. I was hardly ever lost and I think he did a really good job of explaining the concepts to us. I don’t think other people found him helpful because towards the end of the semester only 15 or so people were showing up out of 40. He seemed really down about that, but we had great discussions with those who did show up."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-phys227",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-phys227",
+    "title": "Second Semester UD Courses Review",
+    "section": "7 PHYS227 (B+)",
+    "text": "7 PHYS227 (B+)\nCourse Title: Fundamentals of Physics Lab 1\nProfessor: Class led by TA\nRating: 9/10\nThis lab gave us experiments based on the material in PHYS206. The labs weren’t all that difficult but the lab reports were a pain. There’s really not much to say about this lab. I remember getting a +- value of 50,000, which definitely wasn’t intended, but the lab as a whole was a lot better than the chemistry lab I had first semester, however."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-phys228",
+    "href": "posts/Spring_Reflection_2026/Spring_Reflection.html#sec-phys228",
+    "title": "Second Semester UD Courses Review",
+    "section": "8 PHYS228 (B+)",
+    "text": "8 PHYS228 (B+)\nCourse Title: Fundamentals of Physics Lab 2\nProfessor: Class led by TA\nRating: 7/10\nThis lab was definitely a lot harder than PHYS227. The lab manual was very confusing at times and sometimes, it gave us the wrong instructions. Our TA was really knowledgeable however, so things weren’t too difficult. It would’ve been helpful to have had PHYS208 alongside this class, but I’d rather not take Physics 2 again.\n\nEnd of the post! My second semester went better than I was expecting. It was a struggle in the beginning, especially since I was working at Walmart part time, but I’m glad I got through it. I plan to get an on campus research job next semester, so hopefully that’s more enjoyable. Thanks for reading!"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html",
+    "title": "First Semester UD Courses Review",
+    "section": "",
+    "text": "How did my first semester go?"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html#overview",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html#overview",
+    "title": "First Semester UD Courses Review",
+    "section": "1 Overview",
+    "text": "1 Overview\nFirst year engineering students have common fall semester courses. For this post, I’ll just be detailing my experiences with the classes I had in my first semester.\n\nNote: Originally, this was supposed to be posted on December 15th, 2025, but I’m incredibly lazy and it’s over a month later that I’m now posting this…\n\nSection 2 Section 3 Section 4 Section 5 Section 6 Section 7"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-chem103",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-chem103",
+    "title": "First Semester UD Courses Review",
+    "section": "2 CHEM103 (B)",
+    "text": "2 CHEM103 (B)\nCourse Title: General Chemistry\nProfessor: Dana Chatellier\nRating: 6/10\nTo be quite honest, I didn’t like this class at all. I took it with Professor Chatellier and the lectures were very dense (or maybe I am). We breezed through High School Chemistry in about 3 weeks or so.\nThere was a lot of rote memorization, as well as some very annoying topics to learn. I’m looking you, quantum numbers and VSEPR theory.\nI also worked as a Cashier on weekends, so that reduced the amount of time I could spend doing homework. Actually, there was no homework for this class. Our professor gave us suggested homework problems, but again, I’m incredibly lazy.\nYour grade in this class is solely tied to four exams, each with equal weight (100 points). Your highest score is doubled, however, so there is a total of 500 points you can earn in this class. It’s honestly so easy to pass this class. Getting a 50 on every exam would net you a C-…\nMy grades on the exams in chronological order are: 88, 84, 78, and… a 60. Yes, I failed the final exam. A lot of people got an A, however. I only needed a %4 on the final to pass with a B, and since it was impossible for me to get an A, you can imagine how much effort I actually put into studying.\nWith the class average being a 91.5, I honestly think may have used other tools while taking the test. The test was online with no supervision…\nIf you’re interested, here’s a reddit discussion on this: https://www.reddit.com/r/udel/comments/1p5ifkd/mass_cheating_general_chemistry/"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-chem133",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-chem133",
+    "title": "First Semester UD Courses Review",
+    "section": "3 CHEM133 (A-)",
+    "text": "3 CHEM133 (A-)\nCourse Title: General Chemistry Laboratory\nProfessor: Dr. Burke (class is run by TA’s)\nRating: 3/10\nThe Rate My Professor for Dr. Burke should give you a general idea of what people think about this class.\nYou’re given a pre-lab which just tests you on concepts that will be used to answer questions after the lab. You’re also expected to write down a lab procedure that you will use throughout the lab session. Afterwards, there are discussion questions to answer.\nYou’re given two days after the lab to submit your work, but at the end of the semester they will forgive up to 26 hours of late submissions.\nHonestly, the main gripe I have about this lab is that the lab manual doesn’t go into enough detail on the concepts needed to answer the discussion questions. I found myself having to try to learn using outside resources, and it doesn’t help that the CHEM103 class is a bit behind the lab.\nThe grading is also very dependent on the TA grading that week. My grade felt random at times.\nI’m quite sure I failed the final for this class too, but you’re not given the chance to view your score. It’s online and you could use your lab manual, but even with that, I wouldn’t be surprised if I scored below 20%. They must have curved everyone’s grades a lot."
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-egg101",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-egg101",
+    "title": "First Semester UD Courses Review",
+    "section": "4 EGG101 (A)",
+    "text": "4 EGG101 (A)\nCourse Title: Introduction to Engineering\nProfessor: Dr. Malladi\nRating: 7/10\nYou can honestly just skip the Monday lecture’s and you’ll still be fine. The lecture slides are posted on Canvas.\nThe course in of itself isn’t that bad—it’s supposed to be giving you an overview of what engineering is like. There’s a big project with a hard deadline, and it’s all broken up into a few phases.\nThere’s just a lot of busy work in this class. The reflections were a pain, and there are weekly videos you have to watch in order to answer the questions for an assignment.\nI don’t think a board game is a bad idea for the project, but I do wish it were more interesting. Then again, we are all first years and we aren’t expected to have experience.\nI had a wonderful group (shoutout to team 333!). Everyone contributed and worked really well. We even got an award!\nI do wish I paid more attention in class though. Dr. Malladi is really passionate about what she teaches, and I feel bad for doing computer science homework while she talked. The knowledge of the engineering design process may be useful someday, too."
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-math243",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-math243",
+    "title": "First Semester UD Courses Review",
+    "section": "5 MATH243 (A)",
+    "text": "5 MATH243 (A)\nCourse Title: Analytic Geometry and Calculus C\nProfessor: Novi Bong\nRating: 9/10\nProfessor Bong is amazing! Her explanations are really clear, and she’s super relatable too! She does take attendance, but not always.\nYou also get an extra 10% on your homework for submitting it early, so that can help your grade if you really need it.\nI didn’t find the class all that difficult. If you do the homework and pay attention in class, you’ll be fine. There are pop quizzes, but those weren’t terribly difficult.\nI started skipping the discussion sessions because I had to pick up my brother from school, but I still somehow got a very high participation grade.\nI also kept on asking dumb questions in those sessions, and I was really embarrassed. That probably plays a role in why I started skipping class too."
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-cisc106",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-cisc106",
+    "title": "First Semester UD Courses Review",
+    "section": "6 CISC106 (A)",
+    "text": "6 CISC106 (A)\nCourse Title: General Computer Science for Engineers (Honors)\nProfessor: Nazim Karaca\nRating: 7/10\nTo be quite honest, this course is self taught. Going to lecture felt pointless because well, I didn’t really gain much from them. Professor Nazim is interesting, but I didn’t really get to know him all that well.\nThe lab sessions (practicums) felt especially useless. I really didn’t gain anything from them, especially since the course is largely self taught.\nI started skipping class after a while and started not doing some of the assignments. That actually hurt my grade quite a bit, but I still ended up doing well.\nThe exams felt fairly easy, but exam 2 was notoriously difficult. I don’t know anyone who managed to get the last question.\nMaybe this class was easier for me because I have prior programming experience because I know many people struggled. I would often try to speed run the homework, but there were a few that tripped me up for a while.\nThe Honors Hackathon was really fun though! I believe that this was the first year they hosted it and I wonder if they’ll do it again. There were a lot of interesting projects made. See the post below for a little more information\nHonors Hackathon"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-engl110",
+    "href": "posts/Fall_Reflection_2025/Fall_Reflection.html#sec-engl110",
+    "title": "First Semester UD Courses Review",
+    "section": "7 ENGL110 (A)",
+    "text": "7 ENGL110 (A)\nCourse Title: First Year Writing (Honors)\nProfessor: Dr. Wilson\nRating: 9/10\nThis class was very interesting. It’s a first year class with a theme on trauma. I gained so much knowledge and I recommend anyone who has the chance to take this class to make use of the opportunity.\nDr. Wilson is so intelligent, funny, and really interesting. I should mention that at times she does derail off the material we are supposed to be learning, but even then, those tangents are really informative.\nShe gives a decent amount of extra credit through extra lectures and the banned books read aloud.\nThere is a good amount of reading in this class, but that’s only at the start of the semester. As the semester goes on, there isn’t so much reading, but you do have to do research for your research paper.\nI really, really liked this class. This is coming from someone who doesn’t really like taking English classes. I hope to take another class with her at some point.\n\nWell, that’s the end of the post. My first semester was fairly interesting, and I learned quite a bit! Upon reflecting, I skipped quite a few classes, huh? It all worked out in the end though. Take a look at my next semester classes here:\n\nSpring Semester Classes"
+  },
+  {
+    "objectID": "posts/Honors_Hackathon/Hackathon.html",
+    "href": "posts/Honors_Hackathon/Hackathon.html",
+    "title": "The Honors Hackathon",
+    "section": "",
+    "text": "My first post!"
+  },
+  {
+    "objectID": "posts/Honors_Hackathon/Hackathon.html#introduction",
+    "href": "posts/Honors_Hackathon/Hackathon.html#introduction",
+    "title": "The Honors Hackathon",
+    "section": "Introduction",
+    "text": "Introduction\nHi! I guess this is the first blog post, huh? I hope to journal about my college experience so that I can later on look back upon it. I was thinking of writing everyday, but I’ve realized that’ll probably be very difficult. We’ll see, I guess.\nAnyways—the Honors Hackathon! I’ve never participated in a Hackathon before. The best I can compare it to is the Big Ideas Challenge me and my engineering group participated in yesterday and a game jam I took part of in 8th grade.\nSpeaking of the Big Ideas Challenge, we didn’t win, but it was still really interesting to see what other people have created. I wish I took pictures.\nI’ll try to take pictures while I’m at the Hackathon though. I wonder what it’s like… they don’t tell you what to make, so it’s simply up to you and your partner’s imagination. Now that I think of it, I don’t know many people who did sign up for the Hackathon. Ah well, maybe I’ll try to rope someone into working with me. Two heads are better than one, after all.\nI’m not very good at programming, but I hope to do somewhat well."
+  },
+  {
+    "objectID": "posts/Honors_Hackathon/Hackathon.html#post-hackathon",
+    "href": "posts/Honors_Hackathon/Hackathon.html#post-hackathon",
+    "title": "The Honors Hackathon",
+    "section": "Post Hackathon",
+    "text": "Post Hackathon\nYou won’t believe it, but I WON! I essentially made a Terms and Conditions reader using the Google Gemini API. You can paste in some Terms and Conditions from YouTube, let’s say, and it’ll tell you a brief breakdown of the policies the site has. Gemini’s API was really frustrating to use, and I almost scrapped my idea a few hours in.\nI leaked my API key towards the end of the challenge… that was really scary. I think Dr. Bart was talking about how people in other Hackathons exposed their API keys as well and warned us about it.\nIf you’d like to try out my site, here’s the link: https://edwinko-alt.github.io/Fine-Print-Buster/\nI do hope it’s still up. I ran into some CloudFlare issues when setting it up, but everything should work now.\nJust wait a few moments after hitting ‘send’ because it takes a while for everything to work.\nWow, I honestly can’t believe that I won… I thought that there were some very impressive projects that were much more impressive and useful that what I made. Well, regardless, I now have an iPad to show for it. I’m really glad that I went.\nI wish I took pictures… I was supposed to, but working on the site took up so much of my time. I also wish I could’ve worked with someone else. That would have been a lot more fun."
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/VSCode for C.html",
+    "href": "posts/Jupyter_for_C/VSCode for C.html",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "",
+    "text": "C++ kernel for Jupyer Notebook (VS Code).\nI tried following creme’s blog, but I found it to be outdated. This install uses miniforge3 instead of mambaforge, as it’s deprecated. The process for using the C++ kernel is also a little different.\nTo start, you will need the following:"
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/VSCode for C.html#download-the-miniforge3-installer",
+    "href": "posts/Jupyter_for_C/VSCode for C.html#download-the-miniforge3-installer",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Download the miniforge3 installer",
+    "text": "Download the miniforge3 installer\nOn the miniforge release page, download the file ending in ‘Linux-x86_64.sh’ into the root directory of your terminal.\nThen run the following command to install miniforge3:\nsh ./Miniforge3-Linux-x86_64.sh\nReplace ‘Miniforge3-Linux-x86_64.sh’ with your downloaded file. Press ‘q’ to skip the license and follow the rest of the instructions.\nReload your terminal and to verify the installation, run:\nmamba --version \nls\nYou should see a folder called ‘miniforge3’ now."
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/VSCode for C.html#install-xeus-cling",
+    "href": "posts/Jupyter_for_C/VSCode for C.html#install-xeus-cling",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Install xeus-cling",
+    "text": "Install xeus-cling\nxeus-cling (a Jupyter kernel for C/C++) isn’t available on Windows (hence the reason WSL is needed), so in order to install it, run these three commands:\nmamba create -n cling\nsource activate cling\nmamba install xeus-cling -c conda-forge\nIf you want to install it from source, follow the instructions here\nYou can deactivate the environement by running:\nconda deactivate"
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/VSCode for C.html#install-jupyterlab",
+    "href": "posts/Jupyter_for_C/VSCode for C.html#install-jupyterlab",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Install Jupyterlab",
+    "text": "Install Jupyterlab\nThe last step is to install Jupyterlab via:\nmamba install jupyterlab -c conda-forge"
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/VSCode for C.html#c-kernel-for-vs-code",
+    "href": "posts/Jupyter_for_C/VSCode for C.html#c-kernel-for-vs-code",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "C++ Kernel for VS Code",
+    "text": "C++ Kernel for VS Code\nAgain, following creme’s instructions, install the following extensions:\n\nJupyter by Microsoft\nJupyter Keymap by Microsoft\nJupyter Cell Tags by Microsoft\nJupyter Notebook Renderers by Microsoft\n\nFollowing his instructions for the environment didn’t work for me, so I had to work around it. First, create a file with the ipynb extension and with the cling environment active, run:\njupyter server password\nEnter your password twice, then after it has been hashed, run:\njupyter lab \nYour server should come online, but look for the ‘localhost’ url. Copy that to your clipboard and in VS Code, click on ‘select kernel’.\nI didn’t see a C++ kernel, and if you don’t, click ‘select another kernel’ and then click ‘existing jupyter server’. Paste in your link and enter your password. You now have the C++ kernel!\nIf you found any problems, please let me know, but I hope this is helpful for anyone trying to create C/C++ notebooks in VS Code."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html",
+    "href": "posts/Spring_Reflection_2026/index.html",
+    "title": "Second Semester UD Courses Review",
+    "section": "",
+    "text": "Taking 7 classes (of which 2 were labs) wasn’t a fun experience, but I somehow made it work. This post will follow the same format as last semester’s review (Fall Reflection)."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#overview",
+    "href": "posts/Spring_Reflection_2026/index.html#overview",
+    "title": "Second Semester UD Courses Review",
+    "section": "",
+    "text": "Taking 7 classes (of which 2 were labs) wasn’t a fun experience, but I somehow made it work. This post will follow the same format as last semester’s review (Fall Reflection)."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#sec-cisc210",
+    "href": "posts/Spring_Reflection_2026/index.html#sec-cisc210",
+    "title": "Second Semester UD Courses Review",
+    "section": "2 CISC210 (A)",
+    "text": "2 CISC210 (A)\nCourse Title: Introduction to Systems Programming\nProfessor: Nazim Karaca\nRating: 9/10\nThis class went over the history of Unix and Linux development, the basics of the Linux command line, and provided an overview of the C programming language. We were also provided an introduction to embedded systems programming with a Raspberry Pi, which I found really interesting. This class is really similar to CISC106 in terms of how we were taught.\nThere are usually a few Perusall readings you have to do every week. Some of them can be very lengthy, so it’s a good idea to start on them early. Additionally, there are quizzes on Moodle which are helpful and prepare you for the exams. The projects on the Pi can be really time consuming, so again, it’s a good idea to start on them early. Sometimes, you can get extra credit for doing the projects early too!\nI overall liked this class. C was a little hard to get used to, however. In a high level language like python, a lot about how computers work (memory, data management, etc) is hidden away from you, but C forces you to actually know what you’re doing. The projects were also really fun to work on. Again, I didn’t really like the format, as we had to learn a lot ourselves, but my professor and the TA were really helpful whenever I didn’t understand something."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#sec-cpeg202",
+    "href": "posts/Spring_Reflection_2026/index.html#sec-cpeg202",
+    "title": "Second Semester UD Courses Review",
+    "section": "3 CPEG202 (A-)",
+    "text": "3 CPEG202 (A-)\nCourse Title: Introduction to Digital Systems\nProfessor: Thomas Lum\nRating: 4/10\nThis class goes over the underlying principles of how computers work. We went over topics like CMOS circuits, logic gates, boolean algebra, combinatorial & arithmetic logic circuits, and VHDL programming. We had weekly labs, but two of your lowest scoring labs could be dropped, which was really nice. We also had weekly readings on Zybook that are really helpful. Note that while not required for purchase, the Arty S7-25 board is helpful to have for labs, since the last few labs are really time consuming.\nI disliked this class. Our professor went really fast through slides and I’d sometimes leave class more confused than I was coming in. I remember being so flustered during the latter few weeks of class because I could barely understand the professor. VHDL is also really difficult to program in, so it took quite a bit of time to get through the labs. The Zybooks made learning the concepts a lot easier though, so I’d recommend slowing down to really read them."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#sec-eleg305",
+    "href": "posts/Spring_Reflection_2026/index.html#sec-eleg305",
+    "title": "Second Semester UD Courses Review",
+    "section": "4 ELEG305 (A-)",
+    "text": "4 ELEG305 (A-)\nCourse Title: Signals and Systems\nProfessor: Austin Brockmeier\nRating: 7/10\nELEG305 provides an introduction to the analysis of well, signals and systems. We went over basic signal transformations, linear time invariant systems, continuous and discrete time systems, convolutions, the Fourier series and transforms, and so much more. We had weekly homework problem sets, as well as computer assignments to help us solidify our understanding.\nThis class was hard. Looking back at it, the content wasn’t all that difficult, but being introduced to all of these concepts without a background in Linear Algebra or Differential Equations made things really overwhelming. This class is basically a combination of those two classes. The second exam for this class was brutal. I somehow got a 63, but the class average was ~47 from what I overheard. I think that its best to take a look at the assigned reading for the week before going to class. I found myself doing a lot better once I first exposed myself to the material beforehand.\nI was in the Honors section of this class, so I had to do a research project as well. I worked on a voice isolation project. Essentially, I explored methods of identifying a human voice in the presence of noise. I explored Spectral Subtraction and Independent Component Analysis (ICA). ICA was really difficult to learn about since I didn’t have the requisite mathematical knowledge, but I still got the general idea of how it works. I was able to impelment Spectral Subtraction however, and I plan on making a blog post about it soon."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#sec-honr290",
+    "href": "posts/Spring_Reflection_2026/index.html#sec-honr290",
+    "title": "Second Semester UD Courses Review",
+    "section": "5 HONR290 (A)",
+    "text": "5 HONR290 (A)\nCourse Title: The Art of Interpretation\nProfessor: Richard Hanley\nRating: 9/10\nWould you interpret fiction the same way you’d understand the law? How about scripture? What are ways that one would go about intepreting media in those domains? This class answered some of those questions and more. I didn’t think that this class would be Philosophy based, but well, it was. We went over textualism and other methods of interpreting law. The we looked at various critical theories that help us understand fiction before finally moving to the interpretation of scripture.\nI liked this class. It made me think about things that I otherwise would not. It really helped illustrate how the world isn’t black or white, which I really appreciated. I’d recommend this class!"
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#sec-math351",
+    "href": "posts/Spring_Reflection_2026/index.html#sec-math351",
+    "title": "Second Semester UD Courses Review",
+    "section": "6 MATH351 (A)",
+    "text": "6 MATH351 (A)\nCourse Title: Engineering Mathematics 1\nProfessor: Morgan Schreffler\nRating: 8/10\nThis class was a mix of introductory Differential Equations and Linear Algebra. We went over initial value problems, linear ODE’s, Gaussian elimination, matrix algebra, vector spaces (and subspaces), eigenvalues, coupled linear ODE’s, and more. There are weekly homework assignments with extra credit avaliable, as well as 3 exams (one being the final). The lowest of your two midterms is weighted less, which is really helpful.\nI found this class really interesting and I didn’t find it all that difficult. Contrary to Professor Schreffler’s RMP ratings, I found him a great teacher. I was hardly ever lost and I think he did a really good job of explaining the concepts to us. I don’t think other people found him helpful because towards the end of the semester only 15 or so people were showing up out of 40. He seemed really down about that, but we had great discussions with those who did show up."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#sec-phys227",
+    "href": "posts/Spring_Reflection_2026/index.html#sec-phys227",
+    "title": "Second Semester UD Courses Review",
+    "section": "7 PHYS227 (B+)",
+    "text": "7 PHYS227 (B+)\nCourse Title: Fundamentals of Physics Lab 1\nProfessor: Class led by TA\nRating: 9/10\nThis lab gave us experiments based on the material in PHYS206. The labs weren’t all that difficult but the lab reports were a pain. There’s really not much to say about this lab. I remember getting a +- value of 50,000, which definitely wasn’t intended, but the lab as a whole was a lot better than the chemistry lab I had first semester, however."
+  },
+  {
+    "objectID": "posts/Spring_Reflection_2026/index.html#sec-phys228",
+    "href": "posts/Spring_Reflection_2026/index.html#sec-phys228",
+    "title": "Second Semester UD Courses Review",
+    "section": "8 PHYS228 (B+)",
+    "text": "8 PHYS228 (B+)\nCourse Title: Fundamentals of Physics Lab 2\nProfessor: Class led by TA\nRating: 7/10\nThis lab was definitely a lot harder than PHYS227. The lab manual was very confusing at times and sometimes, it gave us the wrong instructions. Our TA was really knowledgeable however, so things weren’t too difficult. It would’ve been helpful to have had PHYS208 alongside this class, but I’d rather not take Physics 2 again.\n\nEnd of the post! My second semester went better than I was expecting. It was a struggle in the beginning, especially since I was working at Walmart part time, but I’m glad I got through it. I plan to get an on campus research job next semester, so hopefully that’s more enjoyable. Thanks for reading!"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html",
+    "href": "posts/Fall_Reflection_2025/index.html",
+    "title": "First Semester UD Courses Review",
+    "section": "",
+    "text": "First year engineering students have common fall semester courses. For this post, I’ll just be detailing my experiences with the classes I had in my first semester.\n\nNote: Originally, this was supposed to be posted on December 15th, 2025, but I’m incredibly lazy and it’s over a month later that I’m now posting this…"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html#overview",
+    "href": "posts/Fall_Reflection_2025/index.html#overview",
+    "title": "First Semester UD Courses Review",
+    "section": "",
+    "text": "First year engineering students have common fall semester courses. For this post, I’ll just be detailing my experiences with the classes I had in my first semester.\n\nNote: Originally, this was supposed to be posted on December 15th, 2025, but I’m incredibly lazy and it’s over a month later that I’m now posting this…"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html#sec-chem103",
+    "href": "posts/Fall_Reflection_2025/index.html#sec-chem103",
+    "title": "First Semester UD Courses Review",
+    "section": "2 CHEM103 (B)",
+    "text": "2 CHEM103 (B)\nCourse Title: General Chemistry\nProfessor: Dana Chatellier\nRating: 6/10\nTo be quite honest, I didn’t like this class at all. I took it with Professor Chatellier and the lectures were very dense (or maybe I am). We breezed through High School Chemistry in about 3 weeks or so.\nThere was a lot of rote memorization, as well as some very annoying topics to learn. I’m looking you, quantum numbers and VSEPR theory.\nI also worked as a Cashier on weekends, so that reduced the amount of time I could spend doing homework. Actually, there was no homework for this class. Our professor gave us suggested homework problems, but again, I’m incredibly lazy.\nYour grade in this class is solely tied to four exams, each with equal weight (100 points). Your highest score is doubled, however, so there is a total of 500 points you can earn in this class. It’s honestly so easy to pass this class. Getting a 50 on every exam would net you a C-…\nMy grades on the exams in chronological order are: 88, 84, 78, and… a 60. Yes, I failed the final exam. A lot of people got an A, however. I only needed a %4 on the final to pass with a B, and since it was impossible for me to get an A, you can imagine how much effort I actually put into studying.\nWith the class average being a 91.5, I honestly others think may have used other tools while taking the test. The test was online with no supervision…\nIf you’re interested, here’s a reddit discussion on this: https://www.reddit.com/r/udel/comments/1p5ifkd/mass_cheating_general_chemistry/"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html#sec-chem133",
+    "href": "posts/Fall_Reflection_2025/index.html#sec-chem133",
+    "title": "First Semester UD Courses Review",
+    "section": "3 CHEM133 (A-)",
+    "text": "3 CHEM133 (A-)\nCourse Title: General Chemistry Laboratory\nProfessor: Dr. Burke (class is run by TA’s)\nRating: 3/10\nThe Rate My Professor for Dr. Burke should give you a general idea of what people think about this class.\nYou’re given a pre-lab which just tests you on concepts that will be used to answer questions after the lab. You’re also expected to write down a lab procedure that you will use throughout the lab session. Afterwards, there are discussion questions to answer.\nYou’re given two days after the lab to submit your work, but at the end of the semester they will forgive up to 26 hours of late submissions.\nHonestly, the main gripe I have about this lab is that the lab manual doesn’t go into enough detail on the concepts needed to answer the discussion questions. I found myself having to try to learn using outside resources, and it doesn’t help that the CHEM103 class is a bit behind the lab.\nThe grading is also very dependent on the TA grading that week. My grade felt random at times.\nI’m quite sure I failed the final for this class too, but you’re not given the chance to view your score. It’s online and you could use your lab manual, but even with that, I wouldn’t be surprised if I scored below 20%. They must have curved everyone’s grades a lot."
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html#sec-egg101",
+    "href": "posts/Fall_Reflection_2025/index.html#sec-egg101",
+    "title": "First Semester UD Courses Review",
+    "section": "4 EGG101 (A)",
+    "text": "4 EGG101 (A)\nCourse Title: Introduction to Engineering\nProfessor: Dr. Malladi\nRating: 7/10\nYou can honestly just skip the Monday lecture’s and you’ll still be fine. The lecture slides are posted on Canvas.\nThe course in of itself isn’t that bad—it’s supposed to be giving you an overview of what engineering is like. There’s a big project with a hard deadline, and it’s all broken up into a few phases.\nThere’s just a lot of busy work in this class. The reflections were a pain, and there are weekly videos you have to watch in order to answer the questions for an assignment.\nI don’t think a board game is a bad idea for the project, but I do wish it were more interesting. Then again, we are all first years and we aren’t expected to have experience.\nI had a wonderful group (shoutout to team 333!). Everyone contributed and worked really well. We even got an award!\nI do wish I paid more attention in class though. Dr. Malladi is really passionate about what she teaches, and I feel bad for doing computer science homework while she talked. The knowledge of the engineering design process may be useful someday, too."
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html#sec-math243",
+    "href": "posts/Fall_Reflection_2025/index.html#sec-math243",
+    "title": "First Semester UD Courses Review",
+    "section": "5 MATH243 (A)",
+    "text": "5 MATH243 (A)\nCourse Title: Analytic Geometry and Calculus C\nProfessor: Novi Bong\nRating: 9/10\nProfessor Bong is amazing! Her explanations are really clear, and she’s super relatable too! She does take attendance, but not always.\nYou also get an extra 10% on your homework for submitting it early, so that can help your grade if you really need it.\nI didn’t find the class all that difficult. If you do the homework and pay attention in class, you’ll be fine. There are pop quizzes, but those weren’t terribly difficult.\nI started skipping the discussion sessions because I had to pick up my brother from school, but I still somehow got a very high participation grade.\nI also kept on asking dumb questions in those sessions, and I was really embarrassed. That probably plays a role in why I started skipping class too."
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html#sec-cisc106",
+    "href": "posts/Fall_Reflection_2025/index.html#sec-cisc106",
+    "title": "First Semester UD Courses Review",
+    "section": "6 CISC106 (A)",
+    "text": "6 CISC106 (A)\nCourse Title: General Computer Science for Engineers (Honors)\nProfessor: Nazim Karaca\nRating: 7/10\nTo be quite honest, this course is self taught. Going to lecture felt pointless because well, I didn’t really gain much from them. Professor Nazim is interesting, but I didn’t really get to know him all that well.\nThe lab sessions (practicums) felt especially useless. I really didn’t gain anything from them, especially since the course is largely self taught.\nI started skipping class after a while and started not doing some of the assignments. That actually hurt my grade quite a bit, but I still ended up doing well.\nThe exams felt fairly easy, but exam 2 was notoriously difficult. I don’t know anyone who managed to get the last question.\nMaybe this class was easier for me because I have prior programming experience because I know many people struggled. I would often try to speed run the homework, but there were a few that tripped me up for a while.\nThe Honors Hackathon was really fun though! I believe that this was the first year they hosted it and I wonder if they’ll do it again. There were a lot of interesting projects made. See the post below for a little more information\nHonors Hackathon"
+  },
+  {
+    "objectID": "posts/Fall_Reflection_2025/index.html#sec-engl110",
+    "href": "posts/Fall_Reflection_2025/index.html#sec-engl110",
+    "title": "First Semester UD Courses Review",
+    "section": "7 ENGL110 (A)",
+    "text": "7 ENGL110 (A)\nCourse Title: First Year Writing (Honors)\nProfessor: Dr. Wilson\nRating: 9/10\nThis class was very interesting. It’s a first year class with a theme on trauma. I gained so much knowledge and I recommend anyone who has the chance to take this class to make use of the opportunity.\nDr. Wilson is so intelligent, funny, and really interesting. I should mention that at times she does derail off the material we are supposed to be learning, but even then, those tangents are really informative.\nShe gives a decent amount of extra credit through extra lectures and the banned books read aloud.\nThere is a good amount of reading in this class, but that’s only at the start of the semester. As the semester goes on, there isn’t so much reading, but you do have to do research for your research paper.\nI really, really liked this class. This is coming from someone who doesn’t really like taking English classes. I hope to take another class with her at some point.\n\nWell, that’s the end of the post. My first semester was fairly interesting, and I learned quite a bit! Upon reflecting, I skipped quite a few classes, huh? It all worked out in the end though."
+  },
+  {
+    "objectID": "posts/Honors_Hackathon/index.html",
+    "href": "posts/Honors_Hackathon/index.html",
+    "title": "The Honors Hackathon",
+    "section": "",
+    "text": "Hi! I guess this is the first blog post, huh? I hope to journal about my college experience so that I can later on look back upon it. I was thinking of writing everyday, but I’ve realized that’ll probably be very difficult. We’ll see, I guess.\nAnyways—the Honors Hackathon! I’ve never participated in a Hackathon before. The best I can compare it to is the Big Ideas Challenge me and my engineering group participated in yesterday and a game jam I took part of in 8th grade.\nSpeaking of the Big Ideas Challenge, we didn’t win, but it was still really interesting to see what other people have created. I wish I took pictures.\nI’ll try to take pictures while I’m at the Hackathon though. I wonder what it’s like… they don’t tell you what to make, so it’s simply up to you and your partner’s imagination. Now that I think of it, I don’t know many people who did sign up for the Hackathon. Ah well, maybe I’ll try to rope someone into working with me. Two heads are better than one, after all.\nI’m not very good at programming, but I hope to do somewhat well."
+  },
+  {
+    "objectID": "posts/Honors_Hackathon/index.html#introduction",
+    "href": "posts/Honors_Hackathon/index.html#introduction",
+    "title": "The Honors Hackathon",
+    "section": "",
+    "text": "Hi! I guess this is the first blog post, huh? I hope to journal about my college experience so that I can later on look back upon it. I was thinking of writing everyday, but I’ve realized that’ll probably be very difficult. We’ll see, I guess.\nAnyways—the Honors Hackathon! I’ve never participated in a Hackathon before. The best I can compare it to is the Big Ideas Challenge me and my engineering group participated in yesterday and a game jam I took part of in 8th grade.\nSpeaking of the Big Ideas Challenge, we didn’t win, but it was still really interesting to see what other people have created. I wish I took pictures.\nI’ll try to take pictures while I’m at the Hackathon though. I wonder what it’s like… they don’t tell you what to make, so it’s simply up to you and your partner’s imagination. Now that I think of it, I don’t know many people who did sign up for the Hackathon. Ah well, maybe I’ll try to rope someone into working with me. Two heads are better than one, after all.\nI’m not very good at programming, but I hope to do somewhat well."
+  },
+  {
+    "objectID": "posts/Honors_Hackathon/index.html#post-hackathon",
+    "href": "posts/Honors_Hackathon/index.html#post-hackathon",
+    "title": "The Honors Hackathon",
+    "section": "Post Hackathon",
+    "text": "Post Hackathon\nYou won’t believe it, but I WON! I essentially made a Terms and Conditions reader using the Google Gemini API. You can paste in some Terms and Conditions from YouTube, let’s say, and it’ll tell you a brief breakdown of the policies the site has. Gemini’s API was really frustrating to use, and I almost scrapped my idea a few hours in.\nI leaked my API key towards the end of the challenge… that was really scary. I think Dr. Bart was talking about how people in other Hackathons exposed their API keys as well and warned us about it.\nIf you’d like to try out my site, here’s the link: https://edwinko-alt.github.io/Fine-Print-Buster/\nI do hope it’s still up. I ran into some CloudFlare issues when setting it up, but everything should work now.\nJust wait a few moments after hitting ‘send’ because it takes a while for everything to work.\nWow, I honestly can’t believe that I won… I thought that there were some very impressive projects that were much more impressive and useful that what I made. Well, regardless, I now have an iPad to show for it. I’m really glad that I went.\nI wish I took pictures… I was supposed to, but working on the site took up so much of my time. I also wish I could’ve worked with someone else. That would have been a lot more fun."
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/index.html",
+    "href": "posts/Jupyter_for_C/index.html",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "",
+    "text": "I tried following creme’s blog, but I found it to be outdated. This install uses miniforge3 instead of mambaforge, as it’s deprecated. The process for using the C++ kernel is also a little different.\nTo start, you will need the following:"
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/index.html#download-the-miniforge3-installer",
+    "href": "posts/Jupyter_for_C/index.html#download-the-miniforge3-installer",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Download the miniforge3 installer",
+    "text": "Download the miniforge3 installer\nOn the miniforge release page, download the file ending in ‘Linux-x86_64.sh’ into the root directory of your terminal.\nThen run the following command to install miniforge3:\nsh ./Miniforge3-Linux-x86_64.sh\nReplace ‘Miniforge3-Linux-x86_64.sh’ with your downloaded file. Press ‘q’ to skip the license and follow the rest of the instructions.\nReload your terminal and to verify the installation, run:\nmamba --version \nls\nYou should see a folder called ‘miniforge3’ now."
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/index.html#install-xeus-cling",
+    "href": "posts/Jupyter_for_C/index.html#install-xeus-cling",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Install xeus-cling",
+    "text": "Install xeus-cling\nxeus-cling (a Jupyter kernel for C/C++) isn’t available on Windows (hence the reason WSL is needed), so in order to install it, run these three commands:\nmamba create -n cling\nsource activate cling\nmamba install xeus-cling -c conda-forge\nIf you want to install it from source, follow the instructions here\nYou can deactivate the environement by running:\nconda deactivate"
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/index.html#install-jupyterlab",
+    "href": "posts/Jupyter_for_C/index.html#install-jupyterlab",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "Install Jupyterlab",
+    "text": "Install Jupyterlab\nThe last step is to install Jupyterlab via:\nmamba install jupyterlab -c conda-forge"
+  },
+  {
+    "objectID": "posts/Jupyter_for_C/index.html#c-kernel-for-vs-code",
+    "href": "posts/Jupyter_for_C/index.html#c-kernel-for-vs-code",
+    "title": "How to use C++ with Jupyter Notebook in VS Code (Windows)",
+    "section": "C++ Kernel for VS Code",
+    "text": "C++ Kernel for VS Code\nAgain, following creme’s instructions, install the following extensions:\n\nJupyter by Microsoft\nJupyter Keymap by Microsoft\nJupyter Cell Tags by Microsoft\nJupyter Notebook Renderers by Microsoft\n\nFollowing his instructions for the environment didn’t work for me, so I had to work around it. First, create a file with the ipynb extension and with the cling environment active, run:\njupyter server password\nEnter your password twice, then after it has been hashed, run:\njupyter lab \nYour server should come online, but look for the ‘localhost’ url. Copy that to your clipboard and in VS Code, click on ‘select kernel’.\nI didn’t see a C++ kernel, and if you don’t, click ‘select another kernel’ and then click ‘existing jupyter server’. Paste in your link and enter your password. You now have the C++ kernel!\nIf you found any problems, please let me know, but I hope this is helpful for anyone trying to create C/C++ notebooks in VS Code."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  }
+]

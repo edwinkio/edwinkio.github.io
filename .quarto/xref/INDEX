@@ -1,0 +1,74 @@
+{
+  "index.qmd": {
+    "index.html": "fde79c95"
+  },
+  "about.qmd": {
+    "about.html": "deabba82"
+  },
+  "posts/posts.qmd": {
+    "posts.html": "49f58eaa"
+  },
+  "posts.qmd": {
+    "posts.html": "63224b1f"
+  },
+  "posts/title/index.qmd": {
+    "index.html": "a5fb1e2d"
+  },
+  "posts/Freshman Year/Fall/Fall_Reflection.qmd": {
+    "Fall_Reflection.html": "ceb9a104"
+  },
+  "posts/Freshman Year/Fall/Hackathon.qmd": {
+    "Hackathon.html": "78eb6d24"
+  },
+  "posts/Freshman Year/Spring/Spring Semester Classes.qmd": {
+    "Spring Semester Classes.html": "1cda834b"
+  },
+  "posts/Freshman Year/Spring/Week 1.qmd": {
+    "Week 1.html": "25be1649"
+  },
+  "posts/Freshman Year/Spring/VSCode for C.qmd": {
+    "VSCode for C.html": "f8d8990c"
+  },
+  "posts/Freshman Year/Spring/Spring_Reflection.qmd": {
+    "Spring_Reflection.html": "5d91298f"
+  },
+  "posts/Sophmore Year/Transcription_Device.qmd": {
+    "Transcription_Device.html": "2bc6d351"
+  },
+  "posts/Sophmore Year/Grad_Seminar.qmd": {
+    "Grad_Seminar.html": "81a696a8"
+  },
+  "posts/Fall_Reflection_2025/Fall_Reflection.qmd": {
+    "Fall_Reflection.html": "82b6dc4c"
+  },
+  "posts/Honors_Hackathon/Hackathon.qmd": {
+    "Hackathon.html": "296f3b14"
+  },
+  "posts/Spring_Reflection_2026/Spring_Reflection.qmd": {
+    "Spring_Reflection.html": "1f4a20ac"
+  },
+  "posts/Jupyter_for_C/VSCode for C.qmd": {
+    "VSCode for C.html": "e59013af"
+  },
+  "posts/Fall_Reflection_2025/index.qmd": {
+    "index.html": "95c55463"
+  },
+  "posts/Honors_Hackathon/index.qmd": {
+    "index.html": "7de02d41"
+  },
+  "posts/Spring_Reflection_2026/index.qmd": {
+    "index.html": "40d55890"
+  },
+  "posts/Jupyter_for_C/index.qmd": {
+    "index.html": "2591d4e4"
+  },
+  "projects.qmd": {
+    "projects.html": "ff8414e2"
+  },
+  "projects/Spectral_Subtraction/index.qmd": {
+    "index.html": "f6d470b5"
+  },
+  "projects/ART/index.qmd": {
+    "index.html": "1f96eeea"
+  }
+}

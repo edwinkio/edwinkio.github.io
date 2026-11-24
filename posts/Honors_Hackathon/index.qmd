@@ -1,0 +1,36 @@
+---
+title: "The Honors Hackathon"
+description: "My first post!"
+date: "2025-12-6"
+date-modified: "2026-1-15"
+categories: [Fun]
+image: "hackathon.png"
+---
+
+## Introduction
+
+Hi! I guess this is the first blog post, huh? I hope to journal about my college experience so that I can later on look back upon it. I was thinking of writing everyday, but I've realized that'll probably be very difficult. We'll see, I guess.
+
+Anyways—the Honors Hackathon! I've never participated in a Hackathon before. The best I can compare it to is the Big Ideas Challenge me and my engineering group participated in yesterday and a game jam I took part of in 8th grade.
+
+Speaking of the Big Ideas Challenge, we didn't win, but it was still really interesting to see what other people have created. I wish I took pictures.
+
+I'll try to take pictures while I'm at the Hackathon though. I wonder what it's like... they don't tell you what to make, so it's simply up to you and your partner's imagination. Now that I think of it, I don't know many people who did sign up for the Hackathon. Ah well, maybe I'll try to rope someone into working with me. Two heads are better than one, after all.
+
+I'm not very good at programming, but I hope to do somewhat well.
+
+## Post Hackathon
+
+You won't believe it, but I **WON**! I essentially made a Terms and Conditions reader using the Google Gemini API. You can paste in some Terms and Conditions from YouTube, let's say, and it'll tell you a brief breakdown of the policies the site has. Gemini's API was really frustrating to use, and I almost scrapped my idea a few hours in.
+
+I leaked my API key towards the end of the challenge... that was really scary. I think Dr. Bart was talking about how people in other Hackathons exposed their API keys as well and warned us about it.
+
+If you'd like to try out my site, here's the link: <https://edwinko-alt.github.io/Fine-Print-Buster/>
+
+I do hope it's still up. I ran into some CloudFlare issues when setting it up, but everything should work now.
+
+Just wait a few moments after hitting 'send' because it takes a while for everything to work.
+
+Wow, I honestly can't believe that I won... I thought that there were some very impressive projects that were much more impressive and useful that what I made. Well, regardless, I now have an iPad to show for it. I'm really glad that I went.
+
+I wish I took pictures... I was supposed to, but working on the site took up so much of my time. I also wish I could've worked with someone else. That would have been a lot more fun.

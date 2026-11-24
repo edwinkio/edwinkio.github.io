@@ -1,0 +1,92 @@
+---
+title: "How to use C++ with Jupyter Notebook in VS Code (Windows)"
+description: "C++ kernel for Jupyer Notebook (VS Code)."
+date: "2026-1-16"
+date-modified: "2026-6-8"
+categories: [Tutorial]
+image: "ckernel.png"
+---
+
+
+I tried following [creme's](https://creme332.github.io/posts/install-cpp-notebook/) blog, but I found it to be outdated. This install uses miniforge3 instead of mambaforge, as it's deprecated. The process for using the C++ kernel is also a little different.
+
+To start, you will need the following:
+
+- WSL (if using Windows)
+- VS Code
+- miniforge3
+
+## Download the miniforge3 installer
+
+On the [miniforge](https://github.com/conda-forge/miniforge/releases) release page, download the file ending in 
+'Linux-x86_64.sh' into the root directory of your terminal.
+
+Then run the following command to install miniforge3:
+
+```bash
+sh ./Miniforge3-Linux-x86_64.sh
+```
+
+Replace 'Miniforge3-Linux-x86_64.sh' with your downloaded file. Press 'q' to skip the license and follow the rest of the instructions.
+
+Reload your terminal and to verify the installation, run: 
+
+```bash
+mamba --version 
+ls
+```
+
+You should see a folder called 'miniforge3' now.
+
+## Install xeus-cling
+
+xeus-cling (a Jupyter kernel for C/C++) isn't available on Windows (hence the reason WSL is needed), so in order to install it, run these three commands:
+
+```bash
+mamba create -n cling
+source activate cling
+mamba install xeus-cling -c conda-forge
+```
+
+If you want to install it from source, follow the instructions [here](https://github.com/jupyter-xeus/xeus-cling#installation-from-source)
+
+**You can deactivate the environement by running:**
+
+```bash
+conda deactivate
+```
+
+## Install Jupyterlab
+
+The last step is to install Jupyterlab via:
+
+```bash
+mamba install jupyterlab -c conda-forge
+```
+
+## C++ Kernel for VS Code 
+
+Again, following creme's instructions, install the following extensions:
+
+* Jupyter by Microsoft
+* Jupyter Keymap by Microsoft
+* Jupyter Cell Tags by Microsoft
+* Jupyter Notebook Renderers by Microsoft
+
+Following his instructions for the environment didn't work for me, so I had to work around it. First, create a file with the ipynb extension and with the cling environment active, run:
+
+```bash
+jupyter server password
+```
+
+Enter your password twice, then after it has been hashed, run:
+
+```bash
+jupyter lab 
+```
+
+Your server should come online, but look for the 'localhost' url. Copy that to your clipboard and in VS Code, click on 'select kernel'.
+
+I didn't see a C++ kernel, and if you don't, click 'select another kernel' and then click 'existing jupyter server'. Paste in your link and enter your password. You now have the C++ kernel!
+
+If you found any problems, please let me know, but I hope this is helpful for anyone trying to create C/C++ notebooks in VS Code.

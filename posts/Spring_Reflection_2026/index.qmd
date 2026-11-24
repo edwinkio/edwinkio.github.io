@@ -1,0 +1,101 @@
+---
+title: "Second Semester UD Courses Review"
+description: "A little recap of my second semester classes."
+date: "2026-5-31"
+date-modified: "2026-6-8"
+categories: [Course Review]
+number-sections: true
+image: "spring_reflection.jpg"
+---
+
+## Overview
+
+Taking 7 classes (of which 2 were labs) wasn't a fun experience, but I somehow made it work. This post will follow the same format as last semester's review ([Fall Reflection](/posts/Fall_Reflection_2025/index.qmd)).
+
+## CISC210 (A) {#sec-cisc210}
+
+Course Title: Introduction to Systems Programming
+
+Professor: Nazim Karaca
+
+Rating: 9/10
+
+This class went over the history of Unix and Linux development, the basics of the Linux command line, and provided an overview of the C programming language. We were also provided an introduction to embedded systems programming with a Raspberry Pi, which I found really interesting. This class is really similar to CISC106 in terms of how we were taught. 
+
+There are usually a few Perusall readings you have to do every week. Some of them can be very lengthy, so it's a good idea to start on them early. Additionally, there are quizzes on Moodle which are helpful and prepare you for the exams. The projects on the Pi can be really time consuming, so again, it's a good idea to start on them early. Sometimes, you can get extra credit for doing the projects early too!
+
+I overall liked this class. C was a little hard to get used to, however. In a high level language like python, a lot about how computers work (memory, data management, etc) is hidden away from you, but C forces you to actually know what you're doing. The projects were also really fun to work on. Again, I didn't really like the format, as we had to learn a lot ourselves, but my professor and the TA were really helpful whenever I didn't understand something.
+
+## CPEG202 (A-) {#sec-cpeg202}
+
+Course Title: Introduction to Digital Systems
+
+Professor: Thomas Lum
+
+Rating: 4/10
+
+This class goes over the underlying principles of how computers work. We went over topics like CMOS circuits, logic gates, boolean algebra, combinatorial & arithmetic logic circuits, and VHDL programming. We had weekly labs, but two of your lowest scoring labs could be dropped, which was really nice. We also had weekly readings on Zybook that are really helpful. Note that while not required for purchase, the Arty S7-25 board is helpful to have for labs, since the last few labs are really time consuming.
+
+I disliked this class. Our professor went really fast through slides and I'd sometimes leave class more confused than I was coming in. I remember being so flustered during the latter few weeks of class because I could barely understand the professor. VHDL is also really difficult to program in, so it took quite a bit of time to get through the labs. The Zybooks made learning the concepts a lot easier though, so I'd recommend slowing down to really read them.
+
+## ELEG305 (A-) {#sec-eleg305}
+
+Course Title: Signals and Systems
+
+Professor: Austin Brockmeier
+
+Rating: 7/10
+
+ELEG305 provides an introduction to the analysis of well, signals and systems. We went over basic signal transformations, linear time invariant systems, continuous and discrete time systems, convolutions, the Fourier series and transforms, and so much more. We had weekly homework problem sets, as well as computer assignments to help us solidify our understanding.
+
+This class was hard. Looking back at it, the content wasn't all that difficult, but being introduced to all of these concepts without a background in Linear Algebra or Differential Equations made things really overwhelming. This class is basically a combination of those two classes. The second exam for this class was brutal. I somehow got a 63, but the class average was ~47 from what I overheard. I think that its best to take a look at the assigned reading for the week before going to class. I found myself doing a lot better once I first exposed myself to the material beforehand.
+
+I was in the Honors section of this class, so I had to do a research project as well. I worked on a voice isolation project. Essentially, I explored methods of identifying a human voice in the presence of noise. I explored Spectral Subtraction and Independent Component Analysis (ICA). ICA was really difficult to learn about since I didn't have the requisite mathematical knowledge, but I still got the general idea of how it works. I was able to impelment Spectral Subtraction however, and I plan on making a blog post about it soon.
+
+## HONR290 (A) {#sec-honr290}
+
+Course Title: The Art of Interpretation
+
+Professor: Richard Hanley
+
+Rating: 9/10
+
+Would you interpret fiction the same way you'd understand the law? How about scripture? What are ways that one would go about intepreting media in those domains? This class answered some of those questions and more. I didn't think that this class would be Philosophy based, but well, it was. We went over textualism and other methods of interpreting law. The we looked at various critical theories that help us understand fiction before finally moving to the interpretation of scripture.
+
+I liked this class. It made me think about things that I otherwise would not. It really helped illustrate how the world isn't black or white, which I really appreciated. I'd recommend this class!
+
+## MATH351 (A) {#sec-math351}
+
+Course Title: Engineering Mathematics 1
+
+Professor: Morgan Schreffler
+
+Rating: 8/10
+
+This class was a mix of introductory Differential Equations and Linear Algebra. We went over initial value problems, linear ODE's, Gaussian elimination, matrix algebra, vector spaces (and subspaces), eigenvalues, coupled linear ODE's, and more. There are weekly homework assignments with extra credit avaliable, as well as 3 exams (one being the final). The lowest of your two midterms is weighted less, which is really helpful.
+
+I found this class really interesting and I didn't find it all that difficult. Contrary to Professor Schreffler's RMP ratings, I found him a great teacher. I was hardly ever lost and I think he did a really good job of explaining the concepts to us. I don't think other people found him helpful because towards the end of the semester only 15 or so people were showing up out of 40. He seemed really down about that, but we had great discussions with those who did show up. 
+
+## PHYS227 (B+) {#sec-phys227}
+
+Course Title: Fundamentals of Physics Lab 1
+
+Professor: Class led by TA
+
+Rating: 9/10
+
+This lab gave us experiments based on the material in PHYS206. The labs weren't all that difficult but the lab reports were a pain. There's really not much to say about this lab. I remember getting a +- value of 50,000, which *definitely* wasn't intended, but the lab as a whole was a lot better than the chemistry lab I had first semester, however. 
+
+## PHYS228 (B+) {#sec-phys228}
+
+Course Title: Fundamentals of Physics Lab 2
+
+Professor: Class led by TA
+
+Rating: 7/10
+
+This lab was definitely a lot harder than PHYS227. The lab manual was very confusing at times and sometimes, it gave us the wrong instructions. Our TA was really knowledgeable however, so things weren't too difficult. It would've been helpful to have had PHYS208 alongside this class, but I'd rather not take Physics 2 again.
+
+------------------------------------------------------------------------
+
+End of the post! My second semester went better than I was expecting. It was a struggle in the beginning, especially since I was working at Walmart part time, but I'm glad I got through it. I plan to get an on campus research job next semester, so hopefully that's more enjoyable. Thanks for reading!
