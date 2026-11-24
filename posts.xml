@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Edwin K.</title>
+<link>https://edwinkio.github.io/posts.html</link>
+<atom:link href="https://edwinkio.github.io/posts.xml" rel="self" type="application/rss+xml"/>
+<description>Documenting drifting thoughts, experiences with my classes, as well as any random projects I may be working on. A blog built with Quarto.</description>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Sun, 31 May 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Second Semester UD Courses Review</title>
+  <dc:creator>Edwin K.</dc:creator>
+  <link>https://edwinkio.github.io/posts/Spring_Reflection_2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<section id="overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
+<p>Taking 7 classes (of which 2 were labs) wasn’t a fun experience, but I somehow made it work. This post will follow the same format as last semester’s review (<a href="../../posts/Fall_Reflection_2025/index.html">Fall Reflection</a>).</p>
+</section>
+<section id="sec-cisc210" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-cisc210"><span class="header-section-number">2</span> CISC210 (A)</h2>
+<p>Course Title: Introduction to Systems Programming</p>
+<p>Professor: Nazim Karaca</p>
+<p>Rating: 9/10</p>
+<p>This class went over the history of Unix and Linux development, the basics of the Linux command line, and provided an overview of the C programming language. We were also provided an introduction to embedded systems programming with a Raspberry Pi, which I found really interesting. This class is really similar to CISC106 in terms of how we were taught.</p>
+<p>There are usually a few Perusall readings you have to do every week. Some of them can be very lengthy, so it’s a good idea to start on them early. Additionally, there are quizzes on Moodle which are helpful and prepare you for the exams. The projects on the Pi can be really time consuming, so again, it’s a good idea to start on them early. Sometimes, you can get extra credit for doing the projects early too!</p>
+<p>I overall liked this class. C was a little hard to get used to, however. In a high level language like python, a lot about how computers work (memory, data management, etc) is hidden away from you, but C forces you to actually know what you’re doing. The projects were also really fun to work on. Again, I didn’t really like the format, as we had to learn a lot ourselves, but my professor and the TA were really helpful whenever I didn’t understand something.</p>
+</section>
+<section id="sec-cpeg202" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-cpeg202"><span class="header-section-number">3</span> CPEG202 (A-)</h2>
+<p>Course Title: Introduction to Digital Systems</p>
+<p>Professor: Thomas Lum</p>
+<p>Rating: 4/10</p>
+<p>This class goes over the underlying principles of how computers work. We went over topics like CMOS circuits, logic gates, boolean algebra, combinatorial &amp; arithmetic logic circuits, and VHDL programming. We had weekly labs, but two of your lowest scoring labs could be dropped, which was really nice. We also had weekly readings on Zybook that are really helpful. Note that while not required for purchase, the Arty S7-25 board is helpful to have for labs, since the last few labs are really time consuming.</p>
+<p>I disliked this class. Our professor went really fast through slides and I’d sometimes leave class more confused than I was coming in. I remember being so flustered during the latter few weeks of class because I could barely understand the professor. VHDL is also really difficult to program in, so it took quite a bit of time to get through the labs. The Zybooks made learning the concepts a lot easier though, so I’d recommend slowing down to really read them.</p>
+</section>
+<section id="sec-eleg305" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-eleg305"><span class="header-section-number">4</span> ELEG305 (A-)</h2>
+<p>Course Title: Signals and Systems</p>
+<p>Professor: Austin Brockmeier</p>
+<p>Rating: 7/10</p>
+<p>ELEG305 provides an introduction to the analysis of well, signals and systems. We went over basic signal transformations, linear time invariant systems, continuous and discrete time systems, convolutions, the Fourier series and transforms, and so much more. We had weekly homework problem sets, as well as computer assignments to help us solidify our understanding.</p>
+<p>This class was hard. Looking back at it, the content wasn’t all that difficult, but being introduced to all of these concepts without a background in Linear Algebra or Differential Equations made things really overwhelming. This class is basically a combination of those two classes. The second exam for this class was brutal. I somehow got a 63, but the class average was ~47 from what I overheard. I think that its best to take a look at the assigned reading for the week before going to class. I found myself doing a lot better once I first exposed myself to the material beforehand.</p>
+<p>I was in the Honors section of this class, so I had to do a research project as well. I worked on a voice isolation project. Essentially, I explored methods of identifying a human voice in the presence of noise. I explored Spectral Subtraction and Independent Component Analysis (ICA). ICA was really difficult to learn about since I didn’t have the requisite mathematical knowledge, but I still got the general idea of how it works. I was able to impelment Spectral Subtraction however, and I plan on making a blog post about it soon.</p>
+</section>
+<section id="sec-honr290" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="sec-honr290"><span class="header-section-number">5</span> HONR290 (A)</h2>
+<p>Course Title: The Art of Interpretation</p>
+<p>Professor: Richard Hanley</p>
+<p>Rating: 9/10</p>
+<p>Would you interpret fiction the same way you’d understand the law? How about scripture? What are ways that one would go about intepreting media in those domains? This class answered some of those questions and more. I didn’t think that this class would be Philosophy based, but well, it was. We went over textualism and other methods of interpreting law. The we looked at various critical theories that help us understand fiction before finally moving to the interpretation of scripture.</p>
+<p>I liked this class. It made me think about things that I otherwise would not. It really helped illustrate how the world isn’t black or white, which I really appreciated. I’d recommend this class!</p>
+</section>
+<section id="sec-math351" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="sec-math351"><span class="header-section-number">6</span> MATH351 (A)</h2>
+<p>Course Title: Engineering Mathematics 1</p>
+<p>Professor: Morgan Schreffler</p>
+<p>Rating: 8/10</p>
+<p>This class was a mix of introductory Differential Equations and Linear Algebra. We went over initial value problems, linear ODE’s, Gaussian elimination, matrix algebra, vector spaces (and subspaces), eigenvalues, coupled linear ODE’s, and more. There are weekly homework assignments with extra credit avaliable, as well as 3 exams (one being the final). The lowest of your two midterms is weighted less, which is really helpful.</p>
+<p>I found this class really interesting and I didn’t find it all that difficult. Contrary to Professor Schreffler’s RMP ratings, I found him a great teacher. I was hardly ever lost and I think he did a really good job of explaining the concepts to us. I don’t think other people found him helpful because towards the end of the semester only 15 or so people were showing up out of 40. He seemed really down about that, but we had great discussions with those who did show up.</p>
+</section>
+<section id="sec-phys227" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="sec-phys227"><span class="header-section-number">7</span> PHYS227 (B+)</h2>
+<p>Course Title: Fundamentals of Physics Lab 1</p>
+<p>Professor: Class led by TA</p>
+<p>Rating: 9/10</p>
+<p>This lab gave us experiments based on the material in PHYS206. The labs weren’t all that difficult but the lab reports were a pain. There’s really not much to say about this lab. I remember getting a +- value of 50,000, which <em>definitely</em> wasn’t intended, but the lab as a whole was a lot better than the chemistry lab I had first semester, however.</p>
+</section>
+<section id="sec-phys228" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="sec-phys228"><span class="header-section-number">8</span> PHYS228 (B+)</h2>
+<p>Course Title: Fundamentals of Physics Lab 2</p>
+<p>Professor: Class led by TA</p>
+<p>Rating: 7/10</p>
+<p>This lab was definitely a lot harder than PHYS227. The lab manual was very confusing at times and sometimes, it gave us the wrong instructions. Our TA was really knowledgeable however, so things weren’t too difficult. It would’ve been helpful to have had PHYS208 alongside this class, but I’d rather not take Physics 2 again.</p>
+<hr>
+<p>End of the post! My second semester went better than I was expecting. It was a struggle in the beginning, especially since I was working at Walmart part time, but I’m glad I got through it. I plan to get an on campus research job next semester, so hopefully that’s more enjoyable. Thanks for reading!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Course Review</category>
+  <guid>https://edwinkio.github.io/posts/Spring_Reflection_2026/</guid>
+  <pubDate>Sun, 31 May 2026 04:00:00 GMT</pubDate>
+  <media:content url="https://edwinkio.github.io/posts/Spring_Reflection_2026/spring_reflection.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>How to use C++ with Jupyter Notebook in VS Code (Windows)</title>
+  <dc:creator>Edwin K.</dc:creator>
+  <link>https://edwinkio.github.io/posts/Jupyter_for_C/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>I tried following <a href="https://creme332.github.io/posts/install-cpp-notebook/">creme’s</a> blog, but I found it to be outdated. This install uses miniforge3 instead of mambaforge, as it’s deprecated. The process for using the C++ kernel is also a little different.</p>
+<p>To start, you will need the following:</p>
+<ul>
+<li>WSL (if using Windows)</li>
+<li>VS Code</li>
+<li>miniforge3</li>
+</ul>
+<section id="download-the-miniforge3-installer" class="level2">
+<h2 class="anchored" data-anchor-id="download-the-miniforge3-installer">Download the miniforge3 installer</h2>
+<p>On the <a href="https://github.com/conda-forge/miniforge/releases">miniforge</a> release page, download the file ending in ‘Linux-x86_64.sh’ into the root directory of your terminal.</p>
+<p>Then run the following command to install miniforge3:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sh</span> ./Miniforge3-Linux-x86_64.sh</span></code></pre></div></div>
+<p>Replace ‘Miniforge3-Linux-x86_64.sh’ with your downloaded file. Press ‘q’ to skip the license and follow the rest of the instructions.</p>
+<p>Reload your terminal and to verify the installation, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mamba</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--version</span> </span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ls</span></span></code></pre></div></div>
+<p>You should see a folder called ‘miniforge3’ now.</p>
+</section>
+<section id="install-xeus-cling" class="level2">
+<h2 class="anchored" data-anchor-id="install-xeus-cling">Install xeus-cling</h2>
+<p>xeus-cling (a Jupyter kernel for C/C++) isn’t available on Windows (hence the reason WSL is needed), so in order to install it, run these three commands:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mamba</span> create <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> cling</span>
+<span id="cb3-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">source</span> activate cling</span>
+<span id="cb3-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mamba</span> install xeus-cling <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> conda-forge</span></code></pre></div></div>
+<p>If you want to install it from source, follow the instructions <a href="https://github.com/jupyter-xeus/xeus-cling#installation-from-source">here</a></p>
+<p><strong>You can deactivate the environement by running:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> deactivate</span></code></pre></div></div>
+</section>
+<section id="install-jupyterlab" class="level2">
+<h2 class="anchored" data-anchor-id="install-jupyterlab">Install Jupyterlab</h2>
+<p>The last step is to install Jupyterlab via:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">mamba</span> install jupyterlab <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> conda-forge</span></code></pre></div></div>
+</section>
+<section id="c-kernel-for-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="c-kernel-for-vs-code">C++ Kernel for VS Code</h2>
+<p>Again, following creme’s instructions, install the following extensions:</p>
+<ul>
+<li>Jupyter by Microsoft</li>
+<li>Jupyter Keymap by Microsoft</li>
+<li>Jupyter Cell Tags by Microsoft</li>
+<li>Jupyter Notebook Renderers by Microsoft</li>
+</ul>
+<p>Following his instructions for the environment didn’t work for me, so I had to work around it. First, create a file with the ipynb extension and with the cling environment active, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">jupyter</span> server password</span></code></pre></div></div>
+<p>Enter your password twice, then after it has been hashed, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">jupyter</span> lab </span></code></pre></div></div>
+<p>Your server should come online, but look for the ‘localhost’ url. Copy that to your clipboard and in VS Code, click on ‘select kernel’.</p>
+<p>I didn’t see a C++ kernel, and if you don’t, click ‘select another kernel’ and then click ‘existing jupyter server’. Paste in your link and enter your password. You now have the C++ kernel!</p>
+<p>If you found any problems, please let me know, but I hope this is helpful for anyone trying to create C/C++ notebooks in VS Code.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Tutorial</category>
+  <guid>https://edwinkio.github.io/posts/Jupyter_for_C/</guid>
+  <pubDate>Fri, 16 Jan 2026 05:00:00 GMT</pubDate>
+  <media:content url="https://edwinkio.github.io/posts/Jupyter_for_C/ckernel.png" medium="image" type="image/png" height="51" width="144"/>
+</item>
+<item>
+  <title>First Semester UD Courses Review</title>
+  <dc:creator>Edwin K.</dc:creator>
+  <link>https://edwinkio.github.io/posts/Fall_Reflection_2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<section id="overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
+<p>First year engineering students have common fall semester courses. For this post, I’ll just be detailing my experiences with the classes I had in my first semester.</p>
+<div class="alert alert-block alert-info">
+<p>Note: Originally, this was supposed to be posted on December 15th, 2025, but I’m incredibly lazy and it’s over a month later that I’m now posting this…</p>
+</div>
+</section>
+<section id="sec-chem103" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-chem103"><span class="header-section-number">2</span> CHEM103 (B)</h2>
+<p>Course Title: General Chemistry</p>
+<p>Professor: Dana Chatellier</p>
+<p>Rating: 6/10</p>
+<p>To be quite honest, I didn’t like this class at all. I took it with Professor Chatellier and the lectures were very dense (or maybe I am). We breezed through High School Chemistry in about 3 weeks or so.</p>
+<p>There was a lot of rote memorization, as well as some very annoying topics to learn. I’m looking you, quantum numbers and VSEPR theory.</p>
+<p>I also worked as a Cashier on weekends, so that reduced the amount of time I could spend doing homework. Actually, there was no homework for this class. Our professor gave us suggested homework problems, but again, I’m incredibly lazy.</p>
+<p>Your grade in this class is solely tied to four exams, each with equal weight (100 points). Your highest score is doubled, however, so there is a total of 500 points you can earn in this class. It’s honestly so easy to pass this class. Getting a 50 on every exam would net you a C-…</p>
+<p>My grades on the exams in chronological order are: 88, 84, 78, and… a 60. Yes, I failed the final exam. A lot of people got an A, however. I only needed a %4 on the final to pass with a B, and since it was impossible for me to get an A, you can imagine how much effort I actually put into studying.</p>
+<p>With the class average being a 91.5, I honestly others think may have used <em>other</em> tools while taking the test. The test was online with no supervision…</p>
+<p>If you’re interested, here’s a reddit discussion on this: <a href="https://www.reddit.com/r/udel/comments/1p5ifkd/mass_cheating_general_chemistry/" class="uri">https://www.reddit.com/r/udel/comments/1p5ifkd/mass_cheating_general_chemistry/</a></p>
+</section>
+<section id="sec-chem133" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-chem133"><span class="header-section-number">3</span> CHEM133 (A-)</h2>
+<p>Course Title: General Chemistry Laboratory</p>
+<p>Professor: Dr.&nbsp;Burke (class is run by TA’s)</p>
+<p>Rating: 3/10</p>
+<p>The Rate My Professor for Dr.&nbsp;Burke should give you a general idea of what people think about this class.</p>
+<p>You’re given a pre-lab which just tests you on concepts that will be used to answer questions after the lab. You’re also expected to write down a lab procedure that you will use throughout the lab session. Afterwards, there are discussion questions to answer.</p>
+<p>You’re given two days after the lab to submit your work, but at the end of the semester they will forgive up to 26 hours of late submissions.</p>
+<p>Honestly, the main gripe I have about this lab is that the lab manual doesn’t go into enough detail on the concepts needed to answer the discussion questions. I found myself having to try to learn using outside resources, and it doesn’t help that the CHEM103 class is a bit behind the lab.</p>
+<p>The grading is also very dependent on the TA grading that week. My grade felt random at times.</p>
+<p>I’m quite sure I failed the final for this class too, but you’re not given the chance to view your score. It’s online and you could use your lab manual, but even with that, I wouldn’t be surprised if I scored below 20%. They must have curved everyone’s grades a lot.</p>
+</section>
+<section id="sec-egg101" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-egg101"><span class="header-section-number">4</span> EGG101 (A)</h2>
+<p>Course Title: Introduction to Engineering</p>
+<p>Professor: Dr.&nbsp;Malladi</p>
+<p>Rating: 7/10</p>
+<p>You can honestly just skip the Monday lecture’s and you’ll still be fine. The lecture slides are posted on Canvas.</p>
+<p>The course in of itself isn’t that bad—it’s supposed to be giving you an overview of what engineering is like. There’s a big project with a hard deadline, and it’s all broken up into a few phases.</p>
+<p>There’s just a lot of busy work in this class. The reflections were a pain, and there are weekly videos you have to watch in order to answer the questions for an assignment.</p>
+<p>I don’t think a board game is a bad idea for the project, but I do wish it were more interesting. Then again, we are all first years and we aren’t expected to have experience.</p>
+<p>I had a wonderful group (shoutout to team 333!). Everyone contributed and worked really well. We even got an award!</p>
+<p>I do wish I paid more attention in class though. Dr.&nbsp;Malladi is really passionate about what she teaches, and I feel bad for doing computer science homework while she talked. The knowledge of the engineering design process may be useful someday, too.</p>
+</section>
+<section id="sec-math243" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="sec-math243"><span class="header-section-number">5</span> MATH243 (A)</h2>
+<p>Course Title: Analytic Geometry and Calculus C</p>
+<p>Professor: Novi Bong</p>
+<p>Rating: 9/10</p>
+<p>Professor Bong is amazing! Her explanations are really clear, and she’s super relatable too! She does take attendance, but not always.</p>
+<p>You also get an extra 10% on your homework for submitting it early, so that can help your grade if you really need it.</p>
+<p>I didn’t find the class all that difficult. If you do the homework and pay attention in class, you’ll be fine. There are pop quizzes, but those weren’t terribly difficult.</p>
+<p>I started skipping the discussion sessions because I had to pick up my brother from school, but I still somehow got a very high participation grade.</p>
+<p>I also kept on asking dumb questions in those sessions, and I was really embarrassed. That probably plays a role in why I started skipping class too.</p>
+</section>
+<section id="sec-cisc106" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="sec-cisc106"><span class="header-section-number">6</span> CISC106 (A)</h2>
+<p>Course Title: General Computer Science for Engineers (Honors)</p>
+<p>Professor: Nazim Karaca</p>
+<p>Rating: 7/10</p>
+<p>To be quite honest, this course is self taught. Going to lecture felt pointless because well, I didn’t really gain much from them. Professor Nazim is interesting, but I didn’t really get to know him all that well.</p>
+<p>The lab sessions (practicums) felt especially useless. I really didn’t gain anything from them, especially since the course is largely self taught.</p>
+<p>I started skipping class after a while and started not doing some of the assignments. That actually hurt my grade quite a bit, but I still ended up doing well.</p>
+<p>The exams <em>felt</em> fairly easy, but exam 2 was notoriously difficult. I don’t know anyone who managed to get the last question.</p>
+<p>Maybe this class was easier for me because I have prior programming experience because I know many people struggled. I would often try to speed run the homework, but there were a few that tripped me up for a while.</p>
+<p>The Honors Hackathon was really fun though! I believe that this was the first year they hosted it and I wonder if they’ll do it again. There were a lot of interesting projects made. See the post below for a little more information</p>
+<p><a href="../../posts/Honors_Hackathon/index.html">Honors Hackathon</a></p>
+</section>
+<section id="sec-engl110" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="sec-engl110"><span class="header-section-number">7</span> ENGL110 (A)</h2>
+<p>Course Title: First Year Writing (Honors)</p>
+<p>Professor: Dr.&nbsp;Wilson</p>
+<p>Rating: 9/10</p>
+<p>This class was very interesting. It’s a first year class with a theme on trauma. I gained so much knowledge and I recommend anyone who has the chance to take this class to make use of the opportunity.</p>
+<p>Dr.&nbsp;Wilson is so intelligent, funny, and really interesting. I should mention that at times she does derail off the material we are supposed to be learning, but even then, those tangents are really informative.</p>
+<p>She gives a decent amount of extra credit through extra lectures and the banned books read aloud.</p>
+<p>There is a good amount of reading in this class, but that’s only at the start of the semester. As the semester goes on, there isn’t so much reading, but you do have to do research for your research paper.</p>
+<p>I really, really liked this class. This is coming from someone who doesn’t really like taking English classes. I hope to take another class with her at some point.</p>
+<hr>
+<p>Well, that’s the end of the post. My first semester was fairly interesting, and I learned quite a bit! Upon reflecting, I skipped quite a few classes, huh? It all worked out in the end though.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Course Review</category>
+  <guid>https://edwinkio.github.io/posts/Fall_Reflection_2025/</guid>
+  <pubDate>Mon, 15 Dec 2025 05:00:00 GMT</pubDate>
+  <media:content url="https://edwinkio.github.io/posts/Fall_Reflection_2025/Arches.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>The Honors Hackathon</title>
+  <dc:creator>Edwin K.</dc:creator>
+  <link>https://edwinkio.github.io/posts/Honors_Hackathon/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Hi! I guess this is the first blog post, huh? I hope to journal about my college experience so that I can later on look back upon it. I was thinking of writing everyday, but I’ve realized that’ll probably be very difficult. We’ll see, I guess.</p>
+<p>Anyways—the Honors Hackathon! I’ve never participated in a Hackathon before. The best I can compare it to is the Big Ideas Challenge me and my engineering group participated in yesterday and a game jam I took part of in 8th grade.</p>
+<p>Speaking of the Big Ideas Challenge, we didn’t win, but it was still really interesting to see what other people have created. I wish I took pictures.</p>
+<p>I’ll try to take pictures while I’m at the Hackathon though. I wonder what it’s like… they don’t tell you what to make, so it’s simply up to you and your partner’s imagination. Now that I think of it, I don’t know many people who did sign up for the Hackathon. Ah well, maybe I’ll try to rope someone into working with me. Two heads are better than one, after all.</p>
+<p>I’m not very good at programming, but I hope to do somewhat well.</p>
+</section>
+<section id="post-hackathon" class="level2">
+<h2 class="anchored" data-anchor-id="post-hackathon">Post Hackathon</h2>
+<p>You won’t believe it, but I <strong>WON</strong>! I essentially made a Terms and Conditions reader using the Google Gemini API. You can paste in some Terms and Conditions from YouTube, let’s say, and it’ll tell you a brief breakdown of the policies the site has. Gemini’s API was really frustrating to use, and I almost scrapped my idea a few hours in.</p>
+<p>I leaked my API key towards the end of the challenge… that was really scary. I think Dr.&nbsp;Bart was talking about how people in other Hackathons exposed their API keys as well and warned us about it.</p>
+<p>If you’d like to try out my site, here’s the link: <a href="https://edwinko-alt.github.io/Fine-Print-Buster/" class="uri">https://edwinko-alt.github.io/Fine-Print-Buster/</a></p>
+<p>I do hope it’s still up. I ran into some CloudFlare issues when setting it up, but everything should work now.</p>
+<p>Just wait a few moments after hitting ‘send’ because it takes a while for everything to work.</p>
+<p>Wow, I honestly can’t believe that I won… I thought that there were some very impressive projects that were much more impressive and useful that what I made. Well, regardless, I now have an iPad to show for it. I’m really glad that I went.</p>
+<p>I wish I took pictures… I was supposed to, but working on the site took up so much of my time. I also wish I could’ve worked with someone else. That would have been a lot more fun.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Fun</category>
+  <guid>https://edwinkio.github.io/posts/Honors_Hackathon/</guid>
+  <pubDate>Sat, 06 Dec 2025 05:00:00 GMT</pubDate>
+  <media:content url="https://edwinkio.github.io/posts/Honors_Hackathon/hackathon.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+</channel>
+</rss>
